@@ -1,0 +1,45 @@
+# HTTP-Requests & API-Kommunikation
+requests==2.31.0
+
+# Umgebungsvariablen (.env-Dateien)
+python-dotenv==1.0.0
+
+# Data Processing & Analysis
+pandas==2.1.4
+numpy==1.26.2
+
+# Visualisierung
+matplotlib==3.8.2
+seaborn==0.13.0
+plotly==5.18.0
+
+# JSON Schema Validierung
+jsonschema==4.20.0
+pydantic==2.5.3
+
+# Jupyter Notebook Support
+jupyter==1.0.0
+ipykernel==6.27.1
+ipywidgets==8.1.1
+
+# Testing (optional, für spätere Entwicklung)
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Type Hints
+typing-extensions==4.9.0
+
+# Weitere hilfreiche Bibliotheken
+# ================================
+
+# Für spätere AI/RAG-Integration
+# langchain==0.1.0
+# openai==1.6.1
+# sentence-transformers==2.2.2
+
+# Für spätere Matrix-Integration
+# matrix-nio==0.20.2
+
+# Für erweiterte Datenverarbeitung
+# polars==0.19.19  # Alternative zu pandas (schneller)
+# pyarrow==14.0.1  # Für Parquet-Dateien
