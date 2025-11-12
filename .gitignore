@@ -10,3 +10,4 @@ build/
 .env.example
 dataland-gui/.venv/
 dataland-gui/__pycache__/
+.venv
