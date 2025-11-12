@@ -43,3 +43,6 @@ typing-extensions==4.9.0
 # Für erweiterte Datenverarbeitung
 # polars==0.19.19  # Alternative zu pandas (schneller)
 # pyarrow==14.0.1  # Für Parquet-Dateien
+
+flask==3.0.0
+werkzeug==3.0.1
