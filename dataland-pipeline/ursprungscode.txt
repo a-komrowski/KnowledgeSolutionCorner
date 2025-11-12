@@ -1,0 +1,1762 @@
+# Bibliotheken importieren
+import requests
+import json
+from datetime import datetime
+import uuid
+import os
+from dotenv import load_dotenv
+from pathlib import Path
+from typing import List, Dict, Any, Optional
+import time
+import hashlib
+
+# Lade Umgebungsvariablen aus .env-Datei
+load_dotenv()
+
+print("✅ Alle Bibliotheken erfolgreich importiert!")
+print("✅ Umgebungsvariablen aus .env geladen!")
+
+
+# Konfiguration (alles an einem Ort)
+CONFIG = {
+    # API Base URLs (getrennte Services!)
+    "base_url_api": "https://dataland.com/api",
+    "base_url_documents": "https://dataland.com/documents",
+    
+    # API Token aus Environment
+    "api_token": os.getenv("DATALAND_TOKEN"),
+    
+    # Unternehmen zum Testen
+    "company_query": "Siemens",
+    
+    # Company-Lookup Kandidaten (API-Service)
+    # Probiere verschiedene Endpunkte, da öffentliche Swagger nicht eindeutig ist
+    "company_lookup_api_candidates": [
+        # {"path": "/metadata/companies/search", "params": {"q": None}},
+        # {"path": "/metadata/companies", "params": {"query": None}},
+        # {"path": "/companies/search", "params": {"q": None}},
+        # {"path": "/companies", "params": {"name": None}},
+        # {"path": "/entities/search", "params": {"q": None}},
+        # {"path": "/api/companies/search", "params": {"q": None}},
+        {"path": "/companies/names", "params": {"searchString": None}},
+    ],
+    
+    # Company-Lookup Kandidaten (Documents-Service) - Fallback
+    "company_lookup_doc_candidates": [
+        {"path": "/", "params": {"q": None}},
+        {"path": "/search", "params": {"q": None}},
+        {"path": "/", "params": {"query": None}},
+        {"path": "/search", "params": {"query": None}},
+        {"path": "/companies/search", "params": {"q": None}},
+        {"path": "/documents/search", "params": {"q": None}},
+    ],
+    
+    # Timeouts
+    "timeout_search": 30,
+    "timeout_data": 20,
+    
+    # Retry-Konfiguration
+    "max_retries": 3,
+    "backoff_base": 2,        # Exponential Backoff Basis (2^retry_count)
+    "backoff_max": 60,        # Maximale Wartezeit in Sekunden
+    "rate_limit_wait": 60,    # Wartezeit bei Rate Limit (429)
+    
+    # Raw Data Directory
+    "raw_dir": Path("raw")
+}
+
+# Erstelle raw/ Verzeichnis
+CONFIG["raw_dir"].mkdir(exist_ok=True)
+
+print("✅ Konfiguration geladen:")
+print(f"   API Service: {CONFIG['base_url_api']}")
+print(f"   Documents Service: {CONFIG['base_url_documents']}")
+print(f"   Company Query: {CONFIG['company_query']}")
+print(f"   API-Lookup Kandidaten: {len(CONFIG['company_lookup_api_candidates'])}")
+print(f"   Docs-Lookup Kandidaten: {len(CONFIG['company_lookup_doc_candidates'])}")
+print(f"   Token verfügbar: {'✅ Ja' if CONFIG['api_token'] else '❌ Nein (.env fehlt)'}")
+print(f"   Retry-Config: max={CONFIG['max_retries']}, backoff={CONFIG['backoff_base']}^n (max {CONFIG['backoff_max']}s)")
+
+
+from datetime import datetime, timezone
+
+def nowz() -> str:
+    """
+    Gibt aktuellen UTC-Zeitstempel im ISO-Format zurück.
+    
+    Returns:
+        String wie "2025-11-05T13:45:12Z"
+    """
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def append_jsonl(path: Path, obj: Dict[str, Any]) -> None:
+    """
+    Fügt ein JSON-Objekt als neue Zeile zu einer JSONL-Datei hinzu.
+    
+    Args:
+        path: Pfad zur JSONL-Datei
+        obj: Dictionary, das gespeichert werden soll
+    """
+    with open(path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+
+
+def create_envelope(endpoint: str, status: int, request_params: Dict[str, Any], 
+                    payload: Any, error: Optional[Any] = None) -> Dict[str, Any]:
+    """
+    Envelope mit Metadaten + optionalem Fehlerfeld erstellen.
+    - endpoint: aufgerufener API-Pfad (ohne Base-URL)
+    - status: HTTP-Statuscode (oder -1 bei Ausnahme)
+    - request_params: Query-Parameter
+    - payload: Response-Body (roh)
+    - error: optionaler Fehlertext/-objekt
+    """
+    env = {
+        "ts": nowz(),
+        "endpoint": endpoint,
+        "status": status,
+        "request": {"params": request_params},
+        "payload": payload
+    }
+    if error is not None:
+        env["error"] = error
+    return env
+
+
+def generate_hash(company_id: str, data_point_id: str = None, 
+                  period: str = None) -> str:
+    """
+    Generiert einen SHA256-Hash für Idempotenz-Checks.
+    
+    Verhindert, dass dieselben Daten mehrfach gespeichert werden.
+    
+    Args:
+        company_id: Die Unternehmens-ID
+        data_point_id: Optional - Datenpunkt-ID
+        period: Optional - Periode
+        
+    Returns:
+        Hexadezimaler Hash-String
+    """
+    key = f"{company_id}:{data_point_id or ''}:{period or ''}"
+    return hashlib.sha256(key.encode()).hexdigest()
+
+
+print("✅ JSONL-Persistenz-Funktionen definiert")
+print(f"   - nowz(): {nowz()}")
+print(f"   - append_jsonl(): Bereit zum Schreiben")
+print(f"   - create_envelope(): Bereit für API-Responses")
+print(f"   - generate_hash(): Bereit für Idempotenz-Checks")
+
+
+class DatalandHTTPSession:
+    """
+    HTTP-Session mit Retry-Logik, Exponential Backoff und Authentifizierung.
+    
+    Diese Klasse kapselt alle HTTP-Kommunikation mit der Dataland API.
+    """
+    
+    def __init__(self, base_url: str, api_token: Optional[str], config: Dict[str, Any]):
+        """
+        Initialisiert die HTTP-Session.
+        
+        Args:
+            base_url: Die Base-URL für diese Session (z.B. /api oder /documents)
+            api_token: Bearer-Token für Authentifizierung
+            config: Konfigurationsdictionary mit Timeouts, Retries, etc.
+        """
+        self.base_url = base_url
+        self.max_retries = config["max_retries"]
+        self.backoff_base = config["backoff_base"]
+        self.backoff_max = config["backoff_max"]
+        
+        # Session erstellen
+        self.session = requests.Session()
+        
+        # Headers setzen
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+        
+        # Bearer-Token hinzufügen (falls vorhanden)
+        if api_token:
+            # print(api_token)
+            headers["Authorization"] = f"{api_token}"
+            # Zeige nur erste/letzte 4 Zeichen für Debugging
+            token_preview = f"{api_token[:4]}...{api_token[-4:]}" if len(api_token) > 8 else "***"
+            print(f"✅ Session für {base_url} mit Token {token_preview} initialisiert")
+        else:
+            print(f"⚠️  Session für {base_url} ohne Token (Mock-Modus)")
+        
+        self.session.headers.update(headers)
+        
+        # Statistiken
+        self.stats = {
+            "total_requests": 0,
+            "successful_requests": 0,
+            "failed_requests": 0,
+            "retries": 0,
+            "rate_limits": 0
+        }
+    
+    def _calculate_backoff(self, attempt: int) -> float:
+        """
+        Berechnet Wartezeit für Exponential Backoff.
+        
+        Args:
+            attempt: Versuch-Nummer (1-basiert)
+            
+        Returns:
+            Wartezeit in Sekunden
+        """
+        wait = min(self.backoff_base ** attempt, self.backoff_max)
+        return wait
+    
+    def get(self, endpoint: str, params: Optional[Dict] = None, 
+            timeout: int = 30) -> Dict[str, Any]:
+        """
+        Führt GET-Request mit Retry-Logik aus.
+        
+        Args:
+            endpoint: API-Endpoint (z.B. "/" oder "/search")
+            params: Query-Parameter
+            timeout: Timeout in Sekunden
+            
+        Returns:
+            Dictionary mit {"status": int, "data": Any, "error": str|None}
+        """
+        url = f"{self.base_url}{endpoint}"
+        params = params or {}
+        
+        self.stats["total_requests"] += 1
+        
+        for attempt in range(1, self.max_retries + 1):
+            try:
+                print(f"🔄 GET {endpoint} (Versuch {attempt}/{self.max_retries})")
+                print(f"   URL: {url}")
+                if params:
+                    print(f"   Params: {params}")
+                
+                response = self.session.get(url, params=params, timeout=timeout)
+                
+                # Erfolg!
+                if response.status_code == 200:
+                    self.stats["successful_requests"] += 1
+                    print(f"✅ Status 200 - Erfolg")
+                    return {
+                        "status": 200,
+                        "data": response.json(),
+                        "error": None
+                    }
+                
+                # Rate Limit (429)
+                elif response.status_code == 429:
+                    self.stats["rate_limits"] += 1
+                    wait = self._calculate_backoff(attempt)
+                    print(f"⏱️  Rate Limit (429) - Warte {wait}s...")
+                    time.sleep(wait)
+                    self.stats["retries"] += 1
+                    continue
+                
+                # Server-Fehler (5xx) - Retry
+                elif 500 <= response.status_code < 600:
+                    print(f"⚠️  Server-Fehler ({response.status_code})")
+                    if attempt < self.max_retries:
+                        wait = self._calculate_backoff(attempt)
+                        print(f"   Retry in {wait}s...")
+                        time.sleep(wait)
+                        self.stats["retries"] += 1
+                        continue
+                    else:
+                        self.stats["failed_requests"] += 1
+                        return {
+                            "status": response.status_code,
+                            "data": None,
+                            "error": f"Server-Fehler nach {self.max_retries} Versuchen"
+                        }
+                
+                # Client-Fehler (4xx) - Kein Retry
+                else:
+                    self.stats["failed_requests"] += 1
+                    print(f"❌ Client-Fehler ({response.status_code})")
+                    try:
+                        error_data = response.json()
+                    except:
+                        error_data = response.text
+                    return {
+                        "status": response.status_code,
+                        "data": None,
+                        "error": f"HTTP {response.status_code}: {error_data}"
+                    }
+            
+            except requests.exceptions.Timeout:
+                print(f"⏱️  Timeout bei Versuch {attempt}")
+                if attempt < self.max_retries:
+                    wait = self._calculate_backoff(attempt)
+                    print(f"   Retry in {wait}s...")
+                    time.sleep(wait)
+                    self.stats["retries"] += 1
+                else:
+                    self.stats["failed_requests"] += 1
+                    return {
+                        "status": 0,
+                        "data": None,
+                        "error": f"Timeout nach {self.max_retries} Versuchen"
+                    }
+            
+            except requests.exceptions.RequestException as e:
+                print(f"❌ Netzwerk-Fehler: {e}")
+                if attempt < self.max_retries:
+                    wait = self._calculate_backoff(attempt)
+                    print(f"   Retry in {wait}s...")
+                    time.sleep(wait)
+                    self.stats["retries"] += 1
+                else:
+                    self.stats["failed_requests"] += 1
+                    return {
+                        "status": 0,
+                        "data": None,
+                        "error": f"Netzwerk-Fehler: {str(e)}"
+                    }
+        
+        # Sollte nie erreicht werden
+        self.stats["failed_requests"] += 1
+        return {
+            "status": 0,
+            "data": None,
+            "error": "Maximale Retries erreicht"
+        }
+    
+    def print_stats(self):
+        """Gibt Statistiken aus."""
+        print("\n" + "="*60)
+        print(f"📊 HTTP-SESSION STATISTIKEN ({self.base_url})")
+        print("="*60)
+        for key, value in self.stats.items():
+            print(f"  {key}: {value}")
+        print("="*60)
+
+
+# ⚠️ WICHTIG: ZWEI Sessions erstellen - eine für jeden Service!
+print("\n" + "="*70)
+print("🔧 ERSTELLE ZWEI GETRENNTE SESSIONS")
+print("="*70)
+
+# Session 1: API Service (Metadaten, Dimensions, Values)
+api_session = DatalandHTTPSession(
+    base_url=CONFIG["base_url_api"],
+    api_token=CONFIG["api_token"],
+    config=CONFIG
+)
+
+# Session 2: Documents Service (Reports, Sustainability Documents)
+doc_session = DatalandHTTPSession(
+    base_url=CONFIG["base_url_documents"],
+    api_token=CONFIG["api_token"],
+    config=CONFIG
+)
+
+print("\n✅ Beide Sessions bereit für API-Calls!")
+
+
+def search_company_via_api(api_session: DatalandHTTPSession, query: str, 
+                           raw_dir: Path) -> Optional[Dict[str, Any]]:
+    """
+    Sucht nach einem Unternehmen über API-Service (Primärweg).
+    
+    ⚠️ WICHTIG: Nutzt api_session, nicht doc_session!
+    
+    Probiert systematisch verschiedene Endpoint-Kandidaten aus der Config,
+    da öffentliche Swagger keinen eindeutigen Company-Search dokumentiert.
+    
+    Args:
+        api_session: DatalandHTTPSession für API-Service
+        query: Suchbegriff (z.B. "Siemens")
+        raw_dir: Verzeichnis für Raw-Daten
+        
+    Returns:
+        Dictionary mit company_id, name, sector, country oder None
+    """
+    print("\n" + "="*70)
+    print("🔍 SCHRITT 1a: COMPANY-LOOKUP VIA API SERVICE (Primärweg)")
+    print("="*70)
+    print(f"Suche nach: '{query}' über API-Service")
+    print(f"Probe {len(CONFIG['company_lookup_api_candidates'])} Endpoint-Kandidaten...")
+    
+    candidates = CONFIG["company_lookup_api_candidates"]
+    successful_result = None
+    
+    for idx, candidate in enumerate(candidates, 1):
+        endpoint = candidate["path"]
+        param_key = list(candidate["params"].keys())[0]
+        params = {param_key: query}
+        
+        print(f"\n🧪 Probe {idx}/{len(candidates)}: {endpoint}")
+        print(f"   Params: {params}")
+        
+        result = api_session.get(endpoint, params=params, timeout=CONFIG["timeout_search"])
+        
+        # Raw-Persistenz
+        envelope = create_envelope(endpoint, result["status"], params, result["data"], 
+                                   error=result.get("error"))
+        append_jsonl(raw_dir / "company_lookup_api.jsonl", envelope)
+        
+        if result["status"] == 200 and result["data"]:
+            print(f"   ✅ HTTP 200 - Daten erhalten!")
+            successful_result = result
+            break
+        elif result["status"] == 404:
+            print(f"   ❌ HTTP 404 - Endpoint existiert nicht")
+        elif result["status"] == 401:
+            print(f"   ❌ HTTP 401 - Auth-Problem")
+        else:
+            print(f"   ❌ HTTP {result['status']}")
+    
+    if not successful_result:
+        print(f"\n❌ Alle {len(candidates)} API-Probes fehlgeschlagen")
+        print(f"💾 Alle Versuche gespeichert in: company_lookup_api.jsonl")
+        print(f"🔄 Fallback: Wechsle zu Documents-Service...")
+        return None
+    
+    # Analysiere Response
+    response_data = successful_result["data"]
+    
+    # Finde Company-Array (verschiedene Feldnamen möglich)
+    companies = None
+    for possible_key in ["companies", "results", "data", "items", "entities"]:
+        if possible_key in response_data:
+            companies = response_data[possible_key]
+            break
+    
+    # Falls direkt ein Array zurückkommt
+    if companies is None and isinstance(response_data, list):
+        companies = response_data
+    
+    # Falls einzelnes Objekt (kein Array)
+    if companies is None and isinstance(response_data, dict):
+        companies = [response_data]
+    
+    if not companies:
+        print(f"⚠️  Keine Unternehmen gefunden (leere Response)")
+        return None
+    
+    print(f"\n✅ {len(companies)} Unternehmen gefunden:")
+    
+    # Zeige ersten 5
+    for i, comp in enumerate(companies[:5], 1):
+        name = comp.get("name") or comp.get("companyName") or comp.get("company") or "?"
+        cid = comp.get("companyId") or comp.get("id") or comp.get("dataId") or "?"
+        sector = comp.get("sector") or "N/A"
+        print(f"   {i}. {name} (ID: {cid}, Sektor: {sector})")
+    
+    if len(companies) > 5:
+        print(f"   ... und {len(companies) - 5} weitere")
+    
+    # Nimm das erste Ergebnis (bei mehreren Treffern)
+    selected = companies[0]
+    
+    if len(companies) > 1:
+        print(f"\n⚠️  Mehrere Treffer - nutze ersten: {selected.get('name') or selected.get('companyName')}")
+    
+    # Extrahiere relevante Felder (flexibel)
+    company_info = {
+        "company_id": selected.get("companyId") or selected.get("id") or selected.get("dataId"),
+        "name": selected.get("companyName") or selected.get("name") or selected.get("company"),
+        "sector": selected.get("sector"),
+        "country": selected.get("countryCode") or selected.get("country"),
+        "source": "api",  # Markiere als API-Lookup
+        "raw": selected
+    }
+    
+    print(f"\n📌 Ausgewähltes Unternehmen (via API):")
+    print(f"   Name: {company_info['name']}")
+    print(f"   ID: {company_info['company_id']}")
+    print(f"   Sektor: {company_info.get('sector', 'N/A')}")
+    print(f"   Land: {company_info.get('country', 'N/A')}")
+    
+    return company_info
+
+
+def search_company_via_documents(doc_session: DatalandHTTPSession, query: str, 
+                                  raw_dir: Path) -> Optional[Dict[str, Any]]:
+    """
+    Sucht nach einem Unternehmen über Documents-Service (Fallback).
+    
+    ⚠️ WICHTIG: Nutzt doc_session, nicht api_session!
+    
+    Args:
+        doc_session: DatalandHTTPSession für Documents-Service
+        query: Suchbegriff (z.B. "Siemens")
+        raw_dir: Verzeichnis für Raw-Daten
+        
+    Returns:
+        Dictionary mit company_id, name, sector, country oder None
+    """
+    print("\n" + "="*70)
+    print("🔍 SCHRITT 1b: COMPANY-LOOKUP VIA DOCUMENTS SERVICE (Fallback)")
+    print("="*70)
+    print(f"Suche nach: '{query}' über Documents-Service")
+    
+    candidates = CONFIG["company_lookup_doc_candidates"]
+    successful_result = None
+    
+    for idx, candidate in enumerate(candidates, 1):
+        endpoint = candidate["path"]
+        param_key = list(candidate["params"].keys())[0]
+        params = {param_key: query}
+        
+        print(f"\n🧪 Probe {idx}/{len(candidates)}: {endpoint}")
+        print(f"   Params: {params}")
+        
+        result = doc_session.get(endpoint, params=params, timeout=CONFIG["timeout_search"])
+        
+        # Raw-Persistenz
+        envelope = create_envelope(endpoint, result["status"], params, result["data"],
+                                   error=result.get("error"))
+        append_jsonl(raw_dir / "company_lookup_documents.jsonl", envelope)
+        
+        if result["status"] == 200 and result["data"]:
+            print(f"   ✅ HTTP 200 - Daten erhalten!")
+            successful_result = result
+            break
+        elif result["status"] == 404:
+            print(f"   ❌ HTTP 404 - Endpoint existiert nicht")
+        else:
+            print(f"   ❌ HTTP {result['status']}")
+    
+    if not successful_result:
+        print(f"\n❌ Alle {len(candidates)} Documents-Probes fehlgeschlagen")
+        print(f"💾 Alle Versuche gespeichert in: company_lookup_documents.jsonl")
+        return None
+    
+    # Analysiere Response (gleiche Logik wie API)
+    response_data = successful_result["data"]
+    
+    companies = None
+    for possible_key in ["companies", "results", "data", "items", "documents"]:
+        if possible_key in response_data:
+            companies = response_data[possible_key]
+            break
+    
+    if companies is None and isinstance(response_data, list):
+        companies = response_data
+    
+    if companies is None and isinstance(response_data, dict):
+        companies = [response_data]
+    
+    if not companies:
+        print(f"⚠️  Keine Unternehmen gefunden")
+        return None
+    
+    print(f"\n✅ {len(companies)} Unternehmen gefunden (via Documents):")
+    
+    for i, comp in enumerate(companies[:5], 1):
+        name = comp.get("name") or comp.get("companyName") or "?"
+        cid = comp.get("companyId") or comp.get("id") or "?"
+        print(f"   {i}. {name} (ID: {cid})")
+    
+    selected = companies[0]
+    
+    company_info = {
+        "company_id": selected.get("companyId") or selected.get("id") or selected.get("dataId"),
+        "name": selected.get("companyName") or selected.get("name"),
+        "sector": selected.get("sector"),
+        "country": selected.get("countryCode") or selected.get("country"),
+        "source": "documents",  # Markiere als Documents-Lookup
+        "raw": selected
+    }
+    
+    print(f"\n📌 Ausgewähltes Unternehmen (via Documents):")
+    print(f"   Name: {company_info['name']}")
+    print(f"   ID: {company_info['company_id']}")
+    print(f"   Source: Documents-Service (Fallback)")
+    
+    return company_info
+
+
+# Company-Lookup mit Fallback-Strategie
+company_info = None
+
+# 1. Versuch: API-Service (Primärweg)
+company_info = search_company_via_api(api_session, CONFIG["company_query"], CONFIG["raw_dir"])
+
+# 2. Versuch: Documents-Service (Fallback)
+if company_info is None:
+    print("\n" + "⚠️ "*35)
+    print("⚠️  API-Lookup fehlgeschlagen - aktiviere Documents-Fallback")
+    print("⚠️ "*35)
+    company_info = search_company_via_documents(doc_session, CONFIG["company_query"], CONFIG["raw_dir"])
+
+# Finale Auswertung
+if company_info:
+    print("\n" + "="*70)
+    print("✅ COMPANY-LOOKUP ERFOLGREICH")
+    print("="*70)
+    print(f"   Methode: {company_info.get('source', 'unknown').upper()}")
+    print(f"   Company ID: {company_info['company_id']}")
+    print(f"   Name: {company_info['name']}")
+
+    # 🔽🔽🔽 NEU: Finale Company-ID als Variable für den nächsten Schritt speichern
+    # ✅ Finale Company-ID global speichern
+    global final_company_id
+    final_company_id = company_info["company_id"]
+    print(f"\n🔗 Finale Company ID (Variable): {final_company_id}")
+
+else:
+    print("\n" + "="*70)
+    print("❌ COMPANY-LOOKUP KOMPLETT FEHLGESCHLAGEN")
+    print("="*70)
+    print("⚠️  Weder API noch Documents lieferten Ergebnisse")
+    print("⚠️  Fahre mit Mock-Daten fort...")
+    print("\n💡 Tipp:")
+    print("   - Prüfe .env (DATALAND_TOKEN vorhanden?)")
+    print("   - Prüfe Netzwerk (Firewall, VPN?)")
+    print("   - Prüfe raw/*.jsonl Logs für Details")
+
+
+from typing import Any, Dict, List, Optional
+from pathlib import Path
+from datetime import datetime
+
+# Direkt vor dem Aufruf sicherstellen, dass final_company_id existiert
+print(f"📌 Verwende finale Company ID: {final_company_id}")
+
+def list_available_dimensions(api_session: DatalandHTTPSession, company_id: str,
+                              raw_dir: Path) -> Optional[List[Dict[str, Any]]]:
+    """
+    Fragt verfügbare Datendimensionen für ein Unternehmen ab.
+    Verwendet die von Dataland erwarteten Filter:
+      - companyIds: Liste mit genau einer ID
+      - reportingPeriodFrom / reportingPeriodTo: sinnvoller Zeitraum
+    Persistiert Raw-Response in raw/available_dimensions.jsonl.
+    """
+
+# 💡 Überschreibe sicherheitshalber company_id mit der globalen final_company_id
+    company_id = globals().get("final_company_id", company_id)
+
+    print("\n" + "="*70)
+    print("SCHRITT 2: AVAILABLE DIMENSIONS (via API-Service)")
+    print("="*70)
+    print(f"Hole verfügbare Daten für company_id: {company_id}")
+
+    endpoint = "/metadata/available-data-dimensions"
+
+    # Zeitraumfilter: z.B. die letzten 5 vollen Jahre bis inkl. aktuelles Jahr
+    year_now = datetime.now().year
+    params = {
+        "companyIds": [company_id],          # <- wichtig: Plural + Array
+        "reportingPeriodFrom": year_now - 5, # anpassbar
+        "reportingPeriodTo": year_now        # anpassbar
+        # Optional (später): categories, indicatorIds etc., wenn ihr weiter filtern wollt
+    }
+
+    print(f"➡️ API-Request an {endpoint}")
+    print(json.dumps(params, indent=2))
+
+    result = api_session.get(endpoint, params=params, timeout=CONFIG["timeout_data"])
+
+    # Raw-Persistenz
+    envelope = create_envelope(endpoint, result["status"], params, result.get("data"), error=result.get("error"))
+    append_jsonl(raw_dir / "available_dimensions.jsonl", envelope)
+    print("Dimensions gespeichert in: available_dimensions.jsonl")
+
+    # Status prüfen
+    if result["status"] != 200:
+        print(f"Fehler beim Abruf: HTTP {result['status']}")
+        if result.get("error"):
+            print(f"   Error: {result['error']}")
+            # Typische Hilfe bei 400:
+            if result["status"] == 400:
+                print("   Hinweis: Prüfe, dass 'companyIds' (Plural) eine Liste ist "
+                      "und dass ein Zeitraum (reportingPeriodFrom/To) gesetzt ist.")
+        return None
+
+    # Response extrahieren (flexibel je nach Schema)
+    data = result.get("data")
+    dims = None
+    if isinstance(data, dict):
+        for key in ("availableDataPoints", "dimensions", "dataPoints", "data", "results", "items"):
+            if key in data and isinstance(data[key], list):
+                dims = data[key]
+                break
+    if dims is None and isinstance(data, list):
+        dims = data
+
+    if not dims:
+        print("Keine Dimensionen gefunden (leere Response)")
+        return None
+
+    print(f"\n{len(dims)} Dimensionen gefunden:")
+    for i, d in enumerate(dims[:10], 1):
+        dp_id = d.get("dataPointId") or d.get("id") or "?"
+        indicator = d.get("indicator") or d.get("metric") or d.get("code") or "?"
+        period = d.get("period") or d.get("year") or "?"
+        print(f"   {i}. {indicator} ({period}) - ID: {dp_id}")
+    if len(dims) > 10:
+        print(f"   ... und {len(dims) - 10} weitere")
+
+    return dims
+
+
+# # Dimensions abrufen (via api_session!)
+# # ⚠️ WICHTIG: Nutzt api_session, NICHT doc_session!
+# dimensions = None
+# # if company_info and company_info.get("company_id"):
+# #     dimensions = list_available_dimensions(
+# #         api_session,  # <- API Service nutzen!
+# #         company_info["company_id"],
+# #         CONFIG["raw_dir"]
+# #     )
+
+# # Verwendet direkt die finale Company-ID Variable
+# if 'final_company_id' in locals() and final_company_id:
+#     dimensions = list_available_dimensions(
+#         api_session,          # <- API Service nutzen!
+#         final_company_id,     # <- hier wird die finale ID verwendet!
+#         CONFIG["raw_dir"]
+#     )
+
+#     if dimensions:
+#         print("\n" + "="*70)
+#         print("✅ DIMENSIONS ERFOLGREICH ABGERUFEN")
+#         print("="*70)
+#     else:
+#         print("\n" + "="*70)
+#         print("❌ DIMENSIONS FEHLER ODER LEER")
+#         print("="*70)
+#         print("⚠️  Fahre mit Mock-Daten fort...")
+# else:
+#     print("\n" + "="*70)
+#     print("⚠️  Überspringe Dimensions (keine company_id)")
+#     print("="*70)
+
+
+# ======================================================================
+# AUSFÜHRUNG
+# ======================================================================
+
+# 1️⃣ Company Lookup
+# company_info = search_company_via_api(api_session, CONFIG["company_query"], CONFIG["raw_dir"])
+
+# 2️⃣ Available Dimensions abrufen – NUR mit final_company_id
+if "final_company_id" in globals() and final_company_id:
+    print(f"\n📎 Verwende finale Company ID für Dimensions: {final_company_id}")
+    dimensions = list_available_dimensions(api_session, final_company_id, CONFIG["raw_dir"])
+
+    if dimensions:
+        print("\n" + "="*70)
+        print("✅ DIMENSIONS ERFOLGREICH ABGERUFEN")
+        print("="*70)
+    else:
+        print("\n" + "="*70)
+        print("❌ DIMENSIONS FEHLER ODER LEER")
+        print("="*70)
+else:
+    print("\n" + "="*70)
+    print("⚠️ Keine finale Company-ID gefunden – Überspringe Dimensions")
+    print("="*70)
+
+
+
+def fetch_all_values(api_session: DatalandHTTPSession, company_id: str,
+                     dimensions: List[Dict[str, Any]], raw_dir: Path) -> Dict[str, Any]:
+    """
+    Ruft alle Werte für die gegebenen Dimensions ab.
+    
+    ⚠️ WICHTIG: Nutzt api_session (API Service), nicht doc_session!
+    
+    Speichert jede Response in raw/values_<timestamp>.jsonl
+    
+    Args:
+        api_session: DatalandHTTPSession für API-Service
+        company_id: Die Unternehmens-ID
+        dimensions: Liste der Dimensions (aus list_available_dimensions)
+        raw_dir: Verzeichnis für Raw-Daten
+        
+    Returns:
+        Dictionary mit Statistiken
+    """
+    print("\n" + "="*70)
+    print("💎 SCHRITT 3: VALUES ZIEHEN (via API-Service)")
+    print("="*70)
+    print(f"Ziehe Werte für {len(dimensions)} Datenpunkte...")
+    
+    # Zeitstempel für Dateiname
+    timestamp = nowz().replace(":", "").replace("-", "").replace("Z", "")
+    values_file = raw_dir / f"values_{timestamp}.jsonl"
+    
+    # Statistiken
+    stats = {
+        "total": len(dimensions),
+        "success": 0,
+        "failed": 0,
+        "skipped_duplicates": 0,
+        "errors": []
+    }
+    
+    # Duplicate-Tracking
+    seen_hashes = set()
+    
+    # API-Endpoint (aus Swagger übernehmen!)
+    endpoint = "/data-points/values"
+    
+    # Fortschrittsbalken-Schritte (alle 10%)
+    progress_step = max(1, len(dimensions) // 10)
+    
+    print(f"\n🔄 Starte Datenabruf...")
+    start_time = time.time()
+    
+    for i, dim in enumerate(dimensions, 1):
+        # Extrahiere IDs (Feldnamen aus Swagger anpassen!)
+        data_point_id = dim.get("dataPointId") or dim.get("id")
+        period = dim.get("period") or dim.get("year")
+        indicator = dim.get("indicator") or dim.get("name") or "Unknown"
+        
+        if not data_point_id:
+            print(f"⚠️  [{i}/{len(dimensions)}] Überspringe: Keine data_point_id")
+            stats["failed"] += 1
+            continue
+        
+        # Duplicate-Check
+        hash_key = generate_hash(company_id, data_point_id, str(period) if period else None)
+        if hash_key in seen_hashes:
+            stats["skipped_duplicates"] += 1
+            continue
+        seen_hashes.add(hash_key)
+        
+        # Progress
+        if i % progress_step == 0 or i == 1:
+            progress_pct = (i / len(dimensions)) * 100
+            elapsed = time.time() - start_time
+            rate = i / elapsed if elapsed > 0 else 0
+            eta = (len(dimensions) - i) / rate if rate > 0 else 0
+            print(f"\n📊 Fortschritt: {i}/{len(dimensions)} ({progress_pct:.1f}%)")
+            print(f"   Erfolg: {stats['success']}, Fehler: {stats['failed']}")
+            print(f"   Rate: {rate:.1f}/s, ETA: {eta:.0f}s")
+        
+        # Parameter für Request
+        params = {
+            "companyId": company_id,
+            "dataPointId": data_point_id
+        }
+        if period:
+            params["period"] = period
+        
+        # API-Call (mit api_session!)
+        result = api_session.get(endpoint, params=params, timeout=CONFIG["timeout_values"])
+        
+        # Raw-Persistenz (auch Fehler speichern!)
+        envelope = create_envelope(endpoint, result["status"], params, result["data"])
+        append_jsonl(values_file, envelope)
+        
+        # Statistiken
+        if result["status"] == 200:
+            stats["success"] += 1
+            print(f"   ✅ [{i}/{len(dimensions)}] {indicator} ({period})")
+        else:
+            stats["failed"] += 1
+            error_msg = f"{indicator} ({period}): {result['error']}"
+            stats["errors"].append(error_msg)
+            print(f"   ❌ [{i}/{len(dimensions)}] {error_msg}")
+    
+    elapsed_total = time.time() - start_time
+    
+    print("\n" + "="*70)
+    print("📊 VALUES-ABRUF ABGESCHLOSSEN")
+    print("="*70)
+    print(f"💾 Daten gespeichert in: {values_file.name}")
+    print(f"\n📈 Statistiken:")
+    print(f"   Total: {stats['total']}")
+    print(f"   Erfolgreich: {stats['success']}")
+    print(f"   Fehlgeschlagen: {stats['failed']}")
+    print(f"   Duplikate übersprungen: {stats['skipped_duplicates']}")
+    print(f"   Dauer: {elapsed_total:.1f}s")
+    print(f"   Rate: {stats['total']/elapsed_total:.1f} Datenpunkte/s")
+    
+    if stats["errors"] and len(stats["errors"]) <= 10:
+        print(f"\n❌ Fehler-Details:")
+        for error in stats["errors"][:10]:
+            print(f"   - {error}")
+    elif stats["errors"]:
+        print(f"\n❌ {len(stats['errors'])} Fehler (erste 10 gezeigt)")
+        for error in stats["errors"][:10]:
+            print(f"   - {error}")
+    
+    return stats
+
+
+# Values abrufen (nur wenn dimensions vorhanden)
+# ⚠️ WICHTIG: Nutzt api_session!
+values_stats = None
+if dimensions and company_info:
+    values_stats = fetch_all_values(
+        api_session,  # <- API Service nutzen!
+        company_info["company_id"],
+        dimensions,
+        CONFIG["raw_dir"]
+    )
+    
+    if values_stats["success"] > 0:
+        print("\n✅ VALUES ERFOLGREICH ABGERUFEN")
+    else:
+        print("\n❌ KEINE VALUES ABGERUFEN")
+else:
+    print("\n" + "="*70)
+    print("⚠️  Überspringe Values (keine dimensions)")
+    print("="*70)
+
+
+def search_documents(doc_session: DatalandHTTPSession, query: str, 
+                     company_id: Optional[str], raw_dir: Path) -> Optional[List[Dict[str, Any]]]:
+    """
+    Sucht nach Dokumenten für ein Unternehmen.
+    
+    ⚠️ WICHTIG: Nutzt doc_session (Documents Service), nicht api_session!
+    
+    Speichert Suchergebnisse in raw/document_search.jsonl
+    
+    Args:
+        doc_session: DatalandHTTPSession für Documents-Service
+        query: Suchbegriff (z.B. "Siemens")
+        company_id: Optional - Unternehmens-ID für gezielte Suche
+        raw_dir: Verzeichnis für Raw-Daten
+        
+    Returns:
+        Liste von Dokument-Metadaten, oder None bei Fehler
+    """
+    print("\n" + "="*70)
+    print("📄 SCHRITT 4 (Optional): DOKUMENTE SUCHEN (via Documents-Service)")
+    print("="*70)
+    print(f"Suche nach Dokumenten für: '{query}'")
+    
+    # Probing-Liste für Documents
+    # Da doc_session base_url="/documents" hat, ist "/" oder "/search" korrekt
+    candidates = [
+        ("/",       {"q": query}),
+        ("/search", {"q": query}),
+        ("/",       {"query": query}),
+        ("/search", {"query": query}),
+    ]
+    
+    # Falls company_id vorhanden, erweitere Parameter
+    if company_id:
+        candidates.extend([
+            ("/",       {"q": query, "companyId": company_id}),
+            ("/search", {"q": query, "companyId": company_id}),
+        ])
+    
+    successful_result = None
+    
+    for endpoint, params in candidates:
+        print(f"\n🧪 Probe: {endpoint} mit {params}")
+        
+        result = doc_session.get(endpoint, params=params, timeout=CONFIG["timeout_search"])
+        
+        # Raw-Persistenz
+        envelope = create_envelope(endpoint, result["status"], params, result["data"])
+        append_jsonl(raw_dir / "document_search.jsonl", envelope)
+        
+        if result["status"] == 200 and result["data"]:
+            print(f"   ✅ Erfolg! Nutze diesen Endpoint")
+            successful_result = result
+            break
+        else:
+            print(f"   ❌ Fehler: {result['status']}")
+    
+    if not successful_result:
+        print(f"\n❌ Alle Probing-Versuche fehlgeschlagen")
+        print(f"💾 Alle Versuche gespeichert in: document_search.jsonl")
+        return None
+    
+    docs_response = successful_result["data"]
+    
+    # Extrahiere Dokumente-Array (Feldname anpassen!)
+    documents = None
+    for possible_key in ["documents", "results", "data", "items"]:
+        if possible_key in docs_response:
+            documents = docs_response[possible_key]
+            break
+    
+    if documents is None and isinstance(docs_response, list):
+        documents = docs_response
+    
+    if not documents:
+        print(f"⚠️  Keine Dokumente gefunden")
+        return None
+    
+    print(f"\n✅ {len(documents)} Dokumente gefunden:")
+    
+    # Zeige erste 10
+    for i, doc in enumerate(documents[:10], 1):
+        title = doc.get("title") or doc.get("name") or "Untitled"
+        year = doc.get("year") or doc.get("reportingPeriod") or "?"
+        doc_type = doc.get("documentType") or doc.get("type") or "?"
+        print(f"   {i}. {title} ({year}) - Typ: {doc_type}")
+    
+    if len(documents) > 10:
+        print(f"   ... und {len(documents) - 10} weitere")
+    
+    # Statistiken
+    types = {}
+    years = set()
+    for doc in documents:
+        doc_type = doc.get("documentType") or doc.get("type") or "Unknown"
+        types[doc_type] = types.get(doc_type, 0) + 1
+        if "year" in doc:
+            years.add(doc["year"])
+    
+    print(f"\n📊 Statistiken:")
+    print(f"   Dokumenttypen: {dict(types)}")
+    print(f"   Jahre: {sorted(years) if years else 'N/A'}")
+    
+    return documents
+
+
+# Dokumente suchen (optional)
+# ⚠️ WICHTIG: Nutzt doc_session!
+documents = None
+if company_info:
+    documents = search_documents(
+        doc_session,  # <- Documents Service nutzen!
+        CONFIG["company_query"],
+        company_info.get("company_id"),
+        CONFIG["raw_dir"]
+    )
+    
+    if documents:
+        print("\n✅ DOKUMENTE GEFUNDEN")
+    else:
+        print("\n⚠️  KEINE DOKUMENTE ODER FEHLER")
+else:
+    print("\n" + "="*70)
+    print("⚠️  Überspringe Dokumente (keine company_info)")
+    print("="*70)
+
+
+def create_run_log(api_session: DatalandHTTPSession, doc_session: DatalandHTTPSession, 
+                   raw_dir: Path, company_info: Optional[Dict], dimensions: Optional[List],
+                   values: Optional[List], documents: Optional[List]) -> Dict[str, Any]:
+    """
+    Erzeugt Run-Log mit Statistiken von BEIDEN Sessions.
+    
+    Args:
+        api_session: DatalandHTTPSession für API-Service
+        doc_session: DatalandHTTPSession für Documents-Service
+        raw_dir: Verzeichnis für Raw-Daten
+        company_info: Unternehmensdaten
+        dimensions: Dimensionen
+        values: Datenpunkte
+        documents: Dokumente
+        
+    Returns:
+        Run-Log als Dictionary
+    """
+    print("\n" + "="*70)
+    print("📊 SCHRITT 5: RUN-LOG ERZEUGEN")
+    print("="*70)
+    
+    # Statistiken von beiden Sessions kombinieren
+    api_stats = api_session.get_stats()
+    doc_stats = doc_session.get_stats()
+    
+    run_log = {
+        "timestamp": nowz(),
+        "company_query": CONFIG["company_query"],
+        "company_found": bool(company_info),
+        "company_id": company_info.get("company_id") if company_info else None,
+        
+        # Gesammelte Daten
+        "dimensions_count": len(dimensions) if dimensions else 0,
+        "values_count": len(values) if values else 0,
+        "documents_count": len(documents) if documents else 0,
+        
+        # API Service Statistiken
+        "api_service": {
+            "total_requests": api_stats["total_requests"],
+            "successful_requests": api_stats["successful_requests"],
+            "failed_requests": api_stats["failed_requests"],
+            "total_retries": api_stats["total_retries"],
+            "rate_limits_hit": api_stats["rate_limits_hit"],
+        },
+        
+        # Documents Service Statistiken
+        "documents_service": {
+            "total_requests": doc_stats["total_requests"],
+            "successful_requests": doc_stats["successful_requests"],
+            "failed_requests": doc_stats["failed_requests"],
+            "total_retries": doc_stats["total_retries"],
+            "rate_limits_hit": doc_stats["rate_limits_hit"],
+        },
+        
+        # Gesamt-Statistiken
+        "total_statistics": {
+            "total_requests": api_stats["total_requests"] + doc_stats["total_requests"],
+            "successful_requests": api_stats["successful_requests"] + doc_stats["successful_requests"],
+            "failed_requests": api_stats["failed_requests"] + doc_stats["failed_requests"],
+            "total_retries": api_stats["total_retries"] + doc_stats["total_retries"],
+            "rate_limits_hit": api_stats["rate_limits_hit"] + doc_stats["rate_limits_hit"],
+        }
+    }
+    
+    # Persistiere
+    envelope = create_envelope("run_log", 200, {}, run_log)
+    append_jsonl(raw_dir / "run_log.jsonl", envelope)
+    
+    print("\n✅ Run-Log gespeichert")
+    print(f"   Dimensionen: {run_log['dimensions_count']}")
+    print(f"   Values: {run_log['values_count']}")
+    print(f"   Dokumente: {run_log['documents_count']}")
+    print(f"\n   API Service:")
+    print(f"      Requests: {run_log['api_service']['total_requests']} " +
+          f"(✅ {run_log['api_service']['successful_requests']}, " +
+          f"❌ {run_log['api_service']['failed_requests']})")
+    print(f"      Retries: {run_log['api_service']['total_retries']}")
+    print(f"      Rate Limits: {run_log['api_service']['rate_limits_hit']}")
+    print(f"\n   Documents Service:")
+    print(f"      Requests: {run_log['documents_service']['total_requests']} " +
+          f"(✅ {run_log['documents_service']['successful_requests']}, " +
+          f"❌ {run_log['documents_service']['failed_requests']})")
+    print(f"      Retries: {run_log['documents_service']['total_retries']}")
+    print(f"      Rate Limits: {run_log['documents_service']['rate_limits_hit']}")
+    print(f"\n   GESAMT:")
+    print(f"      Total Requests: {run_log['total_statistics']['total_requests']}")
+    print(f"      Retries: {run_log['total_statistics']['total_retries']}")
+    
+    return run_log
+
+
+# Run-Log mit BEIDEN Sessions erzeugen
+run_log = create_run_log(
+    api_session,  # <- API Service
+    doc_session,  # <- Documents Service
+    CONFIG["raw_dir"],
+    company_info,
+    dimensions,
+    values,
+    documents
+)
+
+
+
+# Finale Statistiken für BEIDE Sessions
+print("\n" + "="*70)
+print("📊 FINALE HTTP STATISTIKEN")
+print("="*70)
+
+print("\n  API SERVICE (https://dataland.com/api)")
+print("-" * 70)
+api_session.print_stats()
+
+print("\n  DOCUMENTS SERVICE (https://dataland.com/documents)")
+print("-" * 70)
+doc_session.print_stats()
+
+# Gesamt-Statistiken
+api_stats = api_session.get_stats()
+doc_stats = doc_session.get_stats()
+total_requests = api_stats["total_requests"] + doc_stats["total_requests"]
+total_retries = api_stats["total_retries"] + doc_stats["total_retries"]
+total_rate_limits = api_stats["rate_limits_hit"] + doc_stats["rate_limits_hit"]
+
+print("\n📈 GESAMT-STATISTIKEN (beide Services)")
+print("-" * 70)
+print(f"Total Requests: {total_requests}")
+print(f"Total Retries: {total_retries}")
+print(f"Total Rate Limits: {total_rate_limits}")
+print("="*70)
+
+
+# Mock-Daten für Entwicklung (falls echte API nicht verfügbar)
+def create_mock_data_if_needed():
+    """
+    Erstellt Mock-Daten, falls keine echten Daten abgerufen wurden.
+    """
+    global company_info, dimensions, values_stats, documents
+    
+    # Prüfe, ob wir Mock-Daten brauchen
+    need_mock = (
+        company_info is None or
+        dimensions is None or
+        (values_stats and values_stats["success"] == 0)
+    )
+    
+    if not need_mock:
+        print("✅ Echte Daten vorhanden - keine Mock-Daten nötig")
+        return
+    
+    print("\n" + "="*70)
+    print("🎭 MOCK-MODUS: Erstelle Testdaten")
+    print("="*70)
+    
+    # Mock Company Info
+    if company_info is None:
+        company_info = {
+            "company_id": "mock_siemens_001",
+            "name": "Siemens AG (Mock)",
+            "sector": "Industrials",
+            "country": "Germany"
+        }
+        print("✅ Mock Company Info erstellt")
+    
+    # Mock Dimensions
+    if dimensions is None:
+        dimensions = [
+            {"dataPointId": "co2_scope1_2023", "indicator": "CO2_Scope1", 
+             "period": "2023", "unit": "Mt"},
+            {"dataPointId": "co2_scope2_2023", "indicator": "CO2_Scope2",
+             "period": "2023", "unit": "Mt"},
+            {"dataPointId": "energy_2023", "indicator": "Energy_Consumption",
+             "period": "2023", "unit": "TWh"},
+            {"dataPointId": "renewable_2023", "indicator": "Renewable_Energy_Share",
+             "period": "2023", "unit": "%"},
+            {"dataPointId": "water_2023", "indicator": "Water_Consumption",
+             "period": "2023", "unit": "Mio. m³"},
+            {"dataPointId": "waste_2023", "indicator": "Waste_Recycling_Rate",
+             "period": "2023", "unit": "%"}
+        ]
+        print(f"✅ Mock Dimensions erstellt ({len(dimensions)} Datenpunkte)")
+    
+    # Mock Values - simuliere erfolgreichen Abruf
+    if values_stats is None or values_stats["success"] == 0:
+        # Erstelle Mock-Values-Datei
+        timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+        values_file = CONFIG["raw_dir"] / f"values_mock_{timestamp}.jsonl"
+        
+        mock_values = [
+            {"dataPointId": "co2_scope1_2023", "value": 1.24, "unit": "Mt", 
+             "quality": "verified"},
+            {"dataPointId": "co2_scope2_2023", "value": 0.86, "unit": "Mt",
+             "quality": "verified"},
+            {"dataPointId": "energy_2023", "value": 4.5, "unit": "TWh",
+             "quality": "verified"},
+            {"dataPointId": "renewable_2023", "value": 70, "unit": "%",
+             "quality": "estimated"},
+            {"dataPointId": "water_2023", "value": 3.2, "unit": "Mio. m³",
+             "quality": "verified"},
+            {"dataPointId": "waste_2023", "value": 78, "unit": "%",
+             "quality": "verified"}
+        ]
+        
+        for val in mock_values:
+            envelope = create_envelope(
+                "/data-points/values",
+                200,
+                {"dataPointId": val["dataPointId"]},
+                val
+            )
+            append_jsonl(values_file, envelope)
+        
+        values_stats = {
+            "total": len(mock_values),
+            "success": len(mock_values),
+            "failed": 0,
+            "skipped_duplicates": 0,
+            "errors": []
+        }
+        print(f"✅ Mock Values erstellt ({len(mock_values)} Werte)")
+    
+    # Mock Documents
+    if documents is None:
+        documents = [
+            {
+                "documentId": "doc_2023_sus",
+                "title": "Sustainability Report 2023",
+                "year": 2023,
+                "documentType": "SustainabilityReport",
+                "url": "https://example.com/siemens_sus_2023.pdf"
+            },
+            {
+                "documentId": "doc_2022_sus",
+                "title": "Sustainability Report 2022",
+                "year": 2022,
+                "documentType": "SustainabilityReport",
+                "url": "https://example.com/siemens_sus_2022.pdf"
+            }
+        ]
+        
+        # Speichere in document_search.jsonl
+        envelope = create_envelope(
+            "/documents/search",
+            200,
+            {"q": CONFIG["company_query"]},
+            {"documents": documents}
+        )
+        append_jsonl(CONFIG["raw_dir"] / "document_search.jsonl", envelope)
+        print(f"✅ Mock Documents erstellt ({len(documents)} Dokumente)")
+    
+    print("\n✅ Mock-Daten-Setup abgeschlossen")
+    print("   → Sie können jetzt mit der Transform-Phase fortfahren")
+
+
+# Mock-Daten erstellen falls nötig
+create_mock_data_if_needed()
+
+
+
+class DatalandConnector:
+    """
+    Connector-Klasse für die Dataland API.
+    
+    Diese Klasse kapselt alle Funktionen, die wir brauchen, um:
+    - Mit der Dataland API zu kommunizieren
+    - Daten abzurufen
+    - Fehler zu behandeln
+    """
+    
+    def __init__(self, config: Dict[str, Any]):
+        """
+        Initialisiert den Connector mit der Konfiguration.
+        
+        Args:
+            config: Dictionary mit API-Konfiguration (URL, Keys, etc.)
+        """
+        self.base_url = config["base_url"]
+        self.api_key = config["api_key"]
+        self.timeout = config["timeout"]
+        self.max_retries = config["max_retries"]
+        
+        # Session für effizientere HTTP-Requests (Connection Pooling)
+        self.session = requests.Session()
+        self.session.headers.update({
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        })
+        
+        print("✅ DatalandConnector initialisiert")
+    
+    def _make_request(self, endpoint: str, params: Optional[Dict] = None) -> Dict[str, Any]:
+        """
+        Führt einen HTTP-GET Request an einen API-Endpoint aus.
+        
+        Diese interne Methode (Präfix _) sollte nicht direkt aufgerufen werden.
+        Sie wird von den öffentlichen Methoden verwendet.
+        
+        Args:
+            endpoint: Der API-Endpoint (z.B. "/companies/12345")
+            params: Optional - Query-Parameter als Dictionary
+            
+        Returns:
+            Dictionary mit den API-Response-Daten
+            
+        Raises:
+            Exception: Bei Netzwerk- oder API-Fehlern
+        """
+        url = f"{self.base_url}{endpoint}"
+        
+        for attempt in range(1, self.max_retries + 1):
+            try:
+                print(f"🔄 Request an {endpoint} (Versuch {attempt}/{self.max_retries})...")
+                
+                response = self.session.get(
+                    url,
+                    params=params,
+                    timeout=self.timeout
+                )
+                
+                # HTTP-Fehler prüfen (4xx, 5xx Status Codes)
+                response.raise_for_status()
+                
+                print(f"✅ Erfolgreiche Antwort (Status {response.status_code})")
+                return response.json()
+                
+            except requests.exceptions.Timeout:
+                print(f"⏱️ Timeout bei Versuch {attempt}")
+                if attempt == self.max_retries:
+                    raise Exception(f"Timeout nach {self.max_retries} Versuchen")
+                    
+            except requests.exceptions.HTTPError as e:
+                print(f"❌ HTTP-Fehler: {e}")
+                if response.status_code >= 500 and attempt < self.max_retries:
+                    print(f"   Server-Fehler, versuche erneut...")
+                    continue
+                raise
+                
+            except requests.exceptions.RequestException as e:
+                print(f"❌ Netzwerk-Fehler: {e}")
+                if attempt == self.max_retries:
+                    raise
+    
+    def get_company_data(self, company_id: str) -> Dict[str, Any]:
+        """
+        Ruft alle verfügbaren Daten für ein Unternehmen ab.
+        
+        Args:
+            company_id: Die eindeutige ID des Unternehmens (z.B. ISIN)
+            
+        Returns:
+            Dictionary mit allen Unternehmensdaten
+        """
+        print(f"\n📊 Hole Daten für Unternehmen: {company_id}")
+        endpoint = f"/companies/{company_id}"
+        return self._make_request(endpoint)
+    
+    def get_company_reports(self, company_id: str, year: Optional[int] = None) -> List[Dict[str, Any]]:
+        """
+        Ruft Nachhaltigkeitsberichte für ein Unternehmen ab.
+        
+        Args:
+            company_id: Die eindeutige ID des Unternehmens
+            year: Optional - Filtert nach einem bestimmten Jahr
+            
+        Returns:
+            Liste von Berichten als Dictionaries
+        """
+        print(f"\n📄 Hole Berichte für Unternehmen: {company_id}")
+        if year:
+            print(f"   Gefiltert nach Jahr: {year}")
+        
+        endpoint = f"/companies/{company_id}/reports"
+        params = {"year": year} if year else None
+        
+        response = self._make_request(endpoint, params)
+        return response.get("reports", [])
+    
+    def get_company_metrics(self, company_id: str) -> List[Dict[str, Any]]:
+        """
+        Ruft Nachhaltigkeits-Metriken für ein Unternehmen ab.
+        
+        Metriken sind quantitative Werte wie:
+        - CO₂-Emissionen
+        - Energieverbrauch
+        - Wasserverbrauch
+        - etc.
+        
+        Args:
+            company_id: Die eindeutige ID des Unternehmens
+            
+        Returns:
+            Liste von Metriken als Dictionaries
+        """
+        print(f"\n📈 Hole Metriken für Unternehmen: {company_id}")
+        endpoint = f"/companies/{company_id}/metrics"
+        
+        response = self._make_request(endpoint)
+        return response.get("metrics", [])
+
+print("✅ DatalandConnector-Klasse definiert")
+
+
+
+# Connector-Instanz erstellen
+connector = DatalandConnector(CONFIG)
+
+print("\n" + "="*60)
+print("🚀 Connector ist bereit für API-Calls!")
+print("="*60)
+
+
+
+def create_mock_dataland_response() -> Dict[str, Any]:
+    """
+    Erstellt Mock-Daten, die einer echten Dataland-API-Antwort ähneln.
+    
+    Diese Funktion simuliert, was die Dataland API zurückgeben würde.
+    
+    Returns:
+        Dictionary mit simulierten Unternehmensdaten
+    """
+    return {
+        "company": {
+            "id": "DE0007236101",
+            "name": "Siemens AG",
+            "sector": "Industrials",
+            "country": "Germany",
+            "website": "https://www.siemens.com"
+        },
+        "reports": [
+            {
+                "id": "rep_2023_001",
+                "year": 2023,
+                "title": "Sustainability Report 2023",
+                "url": "https://dataland.com/reports/siemens-2023",
+                "sections": [
+                    {
+                        "section": "Klimastrategie",
+                        "text": "Siemens hat sich verpflichtet, bis 2030 klimaneutral zu werden. Das Unternehmen reduziert kontinuierlich seine CO₂-Emissionen und investiert massiv in erneuerbare Energien."
+                    },
+                    {
+                        "section": "Emissionsreduktion",
+                        "text": "Im Geschäftsjahr 2023 konnte Siemens seine Scope-1- und Scope-2-Emissionen um 15% im Vergleich zum Vorjahr reduzieren. Dies wurde durch Effizienzsteigerungen und den Wechsel zu erneuerbaren Energien erreicht."
+                    },
+                    {
+                        "section": "Circular Economy",
+                        "text": "Siemens fördert die Kreislaufwirtschaft durch Produktdesign, das Recycling und Wiederverwendung erleichtert. 78% der Produktionsabfälle werden recycelt."
+                    }
+                ]
+            },
+            {
+                "id": "rep_2022_001",
+                "year": 2022,
+                "title": "Sustainability Report 2022",
+                "url": "https://dataland.com/reports/siemens-2022",
+                "sections": [
+                    {
+                        "section": "Energieverbrauch",
+                        "text": "Der Energieverbrauch von Siemens betrug 2022 insgesamt 4,2 TWh, wovon 65% aus erneuerbaren Quellen stammten."
+                    }
+                ]
+            }
+        ],
+        "metrics": [
+            {
+                "id": "met_001",
+                "indicator": "CO2_Scope1",
+                "name": "CO₂-Emissionen Scope 1",
+                "value": 1.24,
+                "unit": "Mt",
+                "period": "2023",
+                "description": "Direkte Emissionen aus eigenen oder kontrollierten Quellen"
+            },
+            {
+                "id": "met_002",
+                "indicator": "CO2_Scope2",
+                "name": "CO₂-Emissionen Scope 2",
+                "value": 0.86,
+                "unit": "Mt",
+                "period": "2023",
+                "description": "Indirekte Emissionen aus eingekaufter Energie"
+            },
+            {
+                "id": "met_003",
+                "indicator": "Energy_Consumption",
+                "name": "Gesamtenergieverbrauch",
+                "value": 4.5,
+                "unit": "TWh",
+                "period": "2023",
+                "description": "Gesamter Energieverbrauch aller Standorte"
+            },
+            {
+                "id": "met_004",
+                "indicator": "Renewable_Energy_Share",
+                "name": "Anteil erneuerbarer Energien",
+                "value": 70,
+                "unit": "%",
+                "period": "2023",
+                "description": "Anteil erneuerbarer Energien am Gesamtverbrauch"
+            },
+            {
+                "id": "met_005",
+                "indicator": "Water_Consumption",
+                "name": "Wasserverbrauch",
+                "value": 3.2,
+                "unit": "Mio. m³",
+                "period": "2023",
+                "description": "Gesamter Frischwasserverbrauch"
+            },
+            {
+                "id": "met_006",
+                "indicator": "Waste_Recycling_Rate",
+                "name": "Recyclingquote Abfall",
+                "value": 78,
+                "unit": "%",
+                "period": "2023",
+                "description": "Anteil recycelter Produktionsabfälle"
+            }
+        ],
+        "metadata": {
+            "source": "Dataland",
+            "retrieved_at": datetime.now().isoformat(),
+            "api_version": "v1",
+            "data_quality": "verified"
+        }
+    }
+
+# Mock-Daten erstellen
+mock_data = create_mock_dataland_response()
+
+print("✅ Mock-Daten erstellt")
+print(f"\n📊 Übersicht der Mock-Daten:")
+print(f"  - Unternehmen: {mock_data['company']['name']}")
+print(f"  - Anzahl Berichte: {len(mock_data['reports'])}")
+print(f"  - Anzahl Metriken: {len(mock_data['metrics'])}")
+print(f"  - Datenquelle: {mock_data['metadata']['source']}")
+
+
+
+# Schöner formatierter Output der Rohdaten
+print("="*80)
+print("📦 ROHDATEN VON DATALAND (JSON-Format)")
+print("="*80)
+print(json.dumps(mock_data, indent=2, ensure_ascii=False))
+print("\n" + "="*80)
+
+
+
+def validate_dataland_response(data: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Führt grundlegende Validierungen der API-Response durch.
+    
+    Args:
+        data: Die zu validierende API-Response
+        
+    Returns:
+        Dictionary mit Validierungsergebnissen
+    """
+    results = {
+        "valid": True,
+        "errors": [],
+        "warnings": [],
+        "summary": {}
+    }
+    
+    # 1. Prüfe Hauptstruktur
+    required_keys = ["company", "reports", "metrics", "metadata"]
+    for key in required_keys:
+        if key not in data:
+            results["errors"].append(f"Fehlendes Feld: {key}")
+            results["valid"] = False
+    
+    # 2. Prüfe Company-Daten
+    if "company" in data:
+        company = data["company"]
+        if "name" not in company or not company["name"]:
+            results["errors"].append("Firmenname fehlt")
+            results["valid"] = False
+        results["summary"]["company_name"] = company.get("name", "N/A")
+    
+    # 3. Prüfe Berichte
+    if "reports" in data:
+        reports = data["reports"]
+        results["summary"]["report_count"] = len(reports)
+        
+        if len(reports) == 0:
+            results["warnings"].append("Keine Berichte vorhanden")
+        
+        # Prüfe jeden Bericht
+        for i, report in enumerate(reports):
+            if "year" not in report:
+                results["warnings"].append(f"Bericht {i}: Jahr fehlt")
+            if "sections" not in report or len(report["sections"]) == 0:
+                results["warnings"].append(f"Bericht {i}: Keine Sections vorhanden")
+    
+    # 4. Prüfe Metriken
+    if "metrics" in data:
+        metrics = data["metrics"]
+        results["summary"]["metric_count"] = len(metrics)
+        
+        if len(metrics) == 0:
+            results["warnings"].append("Keine Metriken vorhanden")
+        
+        # Prüfe jede Metrik
+        for i, metric in enumerate(metrics):
+            required_metric_fields = ["indicator", "value", "unit", "period"]
+            for field in required_metric_fields:
+                if field not in metric:
+                    results["warnings"].append(f"Metrik {i}: Feld '{field}' fehlt")
+            
+            # Prüfe, ob value numerisch ist
+            if "value" in metric:
+                try:
+                    float(metric["value"])
+                except (ValueError, TypeError):
+                    results["errors"].append(f"Metrik {i}: value ist nicht numerisch")
+                    results["valid"] = False
+    
+    return results
+
+# Validierung durchführen
+validation_results = validate_dataland_response(mock_data)
+
+print("\n" + "="*80)
+print("🔍 DATENQUALITÄTS-PRÜFUNG")
+print("="*80)
+
+if validation_results["valid"]:
+    print("✅ Daten sind gültig!\n")
+else:
+    print("❌ Daten haben Fehler!\n")
+
+print("📊 Zusammenfassung:")
+for key, value in validation_results["summary"].items():
+    print(f"  - {key}: {value}")
+
+if validation_results["errors"]:
+    print("\n❌ Fehler:")
+    for error in validation_results["errors"]:
+        print(f"  - {error}")
+
+if validation_results["warnings"]:
+    print("\n⚠️ Warnungen:")
+    for warning in validation_results["warnings"]:
+        print(f"  - {warning}")
+
+print("\n" + "="*80)
+
+
+
+# Schöne Zusammenfassung ausgeben
+print("\n" + "="*80)
+print("📋 ZUSAMMENFASSUNG DER GESAMMELTEN DATEN")
+print("="*80)
+
+print(f"\n🏢 Unternehmen: {mock_data['company']['name']}")
+print(f"   Sektor: {mock_data['company']['sector']}")
+print(f"   Land: {mock_data['company']['country']}")
+
+print(f"\n📄 Berichte: {len(mock_data['reports'])} Stück")
+for report in mock_data['reports']:
+    print(f"   - {report['year']}: {report['title']}")
+    print(f"     Sections: {len(report['sections'])}")
+
+print(f"\n📈 Metriken: {len(mock_data['metrics'])} Stück")
+for metric in mock_data['metrics']:
+    print(f"   - {metric['name']}: {metric['value']} {metric['unit']} ({metric['period']})")
+
+print(f"\n🔖 Metadaten:")
+print(f"   Quelle: {mock_data['metadata']['source']}")
+print(f"   Abgerufen: {mock_data['metadata']['retrieved_at']}")
+print(f"   API-Version: {mock_data['metadata']['api_version']}")
+
+print("\n" + "="*80)
+print("✅ CONNECTOR/INGEST ABGESCHLOSSEN")
+print("="*80)
+print("\n➡️  Nächster Schritt: Transform Layer (Daten ins kanonische Schema überführen)")
+
+
+
+
+# Quick-Check: Welcher Endpoint war erfolgreich?
+import json
+
+print("="*70)
+print("🔍 ENDPOINT-ANALYSE")
+print("="*70)
+
+# Prüfe API-Lookup
+api_lookup_file = CONFIG["raw_dir"] / "company_lookup_api.jsonl"
+if api_lookup_file.exists():
+    print("\n📂 API-Service Probes:")
+    with open(api_lookup_file, 'r') as f:
+        for line in f:
+            entry = json.loads(line)
+            status = entry.get("status", "?")
+            endpoint = entry.get("endpoint", "?")
+            symbol = "✅" if status == 200 else "❌"
+            print(f"   {symbol} {endpoint} → HTTP {status}")
+else:
+    print("\n⚠️  Keine API-Lookup Versuche gefunden")
+
+# Prüfe Documents-Lookup
+doc_lookup_file = CONFIG["raw_dir"] / "company_lookup_documents.jsonl"
+if doc_lookup_file.exists():
+    print("\n📂 Documents-Service Probes:")
+    with open(doc_lookup_file, 'r') as f:
+        for line in f:
+            entry = json.loads(line)
+            status = entry.get("status", "?")
+            endpoint = entry.get("endpoint", "?")
+            symbol = "✅" if status == 200 else "❌"
+            print(f"   {symbol} {endpoint} → HTTP {status}")
+else:
+    print("\n⚠️  Keine Documents-Lookup Versuche gefunden")
+
+print("\n" + "="*70)
+print("💡 Tipp: Erfolgreiche Endpoints (✅) in CONFIG übernehmen!")
+print("="*70)
+
+
+
+

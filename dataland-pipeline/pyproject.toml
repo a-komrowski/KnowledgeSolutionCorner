@@ -1,0 +1,13 @@
+[project]
+name = "dataland-pipeline"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.32",
+  "python-dotenv>=1.0",
+  "pydantic>=2.7",
+  "typer>=0.12",
+]
+
+[project.scripts]
+dataland = "dataland_pipeline.cli:app"
