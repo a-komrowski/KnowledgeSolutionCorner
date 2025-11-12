@@ -1,0 +1,722 @@
+[
+  {
+    "metaInfo": {
+      "dataId": "not available",
+      "companyId": "9a6647ae-eaf5-4486-b31e-46b37788e6c2",
+      "dataType": "sfdr",
+      "uploaderUserId": null,
+      "uploadTime": 1754463214210,
+      "reportingPeriod": "2023",
+      "currentlyActive": true,
+      "qaStatus": "Accepted",
+      "ref": null
+    },
+    "data": {
+      "general": {
+        "general": {
+          "dataDate": "2023-06-30",
+          "fiscalYearDeviation": "Deviation",
+          "fiscalYearEnd": "2023-06-30",
+          "referencedReports": {
+            "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf": {
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "publicationDate": null
+            },
+            "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf": {
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "publicationDate": null
+            },
+            "MICROSOFT CORPORATION/Microsoft Corporation-CDP Water Security Response 2023.pdf": {
+              "fileReference": "719932d97ea6d1d3013ddc61faf92a091ae49a76dbf2c4a3f8e954e07c77ca12",
+              "fileName": "MICROSOFT CORPORATION/Microsoft Corporation-CDP Water Security Response 2023.pdf",
+              "publicationDate": null
+            },
+            "MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf": {
+              "fileReference": "f1f4f6649b96c188f3014f0ffb60c11bf28f926140e549c2609ead40d928841f",
+              "fileName": "MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf",
+              "publicationDate": null
+            },
+            "MICROSOFT CORPORATION/FY23 Microsoft Supply Chain Integrity Statement.pdf": {
+              "fileReference": "fe78b19540c14b5c889b3beec7ac18d577cfc2077364cb895a69f16b11b22877",
+              "fileName": "MICROSOFT CORPORATION/FY23 Microsoft Supply Chain Integrity Statement.pdf",
+              "publicationDate": null
+            }
+          }
+        }
+      },
+      "environmental": {
+        "greenhouseGasEmissions": {
+          "scope1GhgEmissionsInTonnes": {
+            "value": 144960,
+            "quality": "Reported",
+            "comment": "The greenhouse gas emissions of MICROSOFT CORPORATION for Scope 1 amount to 144,960 tons of CO2e for the reporting year.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "scope2GhgEmissionsInTonnes": {
+            "value": 8077403,
+            "quality": "Reported",
+            "comment": "The location-based method was used for computing the Scope 2 GHG Emissions.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "scope2GhgEmissionsLocationBasedInTonnes": {
+            "value": 8077403,
+            "quality": "Reported",
+            "comment": "The greenhouse gas emissions of Microsoft Corporation for Scope 2 are as follows:\n\n- Location-based: 8,077,403 metric tons of CO2e\n- Market-based: 393,134 metric tons of CO2e",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "scope2GhgEmissionsMarketBasedInTonnes": {
+            "value": 393134,
+            "quality": "Reported",
+            "comment": "The greenhouse gas emissions of Microsoft Corporation for Scope 2 are as follows:\n\n- Location-based: 8,077,403 metric tons of CO2e\n- Market-based: 393,134 metric tons of CO2e",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "scope1And2GhgEmissionsInTonnes": {
+            "value": 8222363,
+            "quality": "Reported",
+            "comment": "The location-based method was used for computing the Scope 2 GHG Emissions.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "scope1And2GhgEmissionsLocationBasedInTonnes": {
+            "value": 8222363,
+            "quality": "Reported",
+            "comment": "The sum of Scope 1 and Scope 2 carbon emissions using the location-based method for calculating Scope 2 carbon emissions is:\n\n- Scope 1 Emissions: 144,960 mtCO2e\n- Scope 2 Emissions (location-based): 8,077,403 mtCO2e\n\nTherefore, the total sum of Scope 1 and Scope 2 emissions is 8,222,363 mtCO2e.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "scope1And2GhgEmissionsMarketBasedInTonnes": {
+            "value": 538094,
+            "quality": "Estimated",
+            "comment": "Calculated based on the rule that Scope 1 GHG emissions and Scope 2 GHG emissions (market-based) should sum up to Scope 1 and 2 GHG emissions (market-based).",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "scope3GhgEmissionsInTonnes": {
+            "value": 16624000,
+            "quality": "Reported",
+            "comment": "The greenhouse gas emissions of MICROSOFT CORPORATION for Scope 3 in the reporting year amount to 16,624,000 tons of CO2e.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "scope3UpstreamGhgEmissionsInTonnes": null,
+          "scope3DownstreamGhgEmissionsInTonnes": null,
+          "scope1And2And3GhgEmissionsInTonnes": {
+            "value": 24846363,
+            "quality": "Estimated",
+            "comment": "The location-based method was used for computing the Scope 2 GHG Emissions.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "scope1And2And3GhgEmissionsLocationBasedInTonnes": {
+            "value": 24846363,
+            "quality": "Estimated",
+            "comment": "Calculated based on the rule that Scope 1 GHG emissions, Scope 2 GHG emissions (location-based), and Scope 3 GHG emissions should sum up to Scope 1 and 2 and 3 GHG emissions (location-based).",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "scope1And2And3GhgEmissionsMarketBasedInTonnes": {
+            "value": 17162094,
+            "quality": "Estimated",
+            "comment": "Calculated based on the rule that Scope 1 GHG emissions, Scope 2 GHG emissions (market-based), and Scope 3 GHG emissions should sum up to Scope 1 and 2 and 3 GHG emissions (market-based).",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "scope4GhgEmissionsInTonnes": null,
+          "enterpriseValueInEUR": null,
+          "totalRevenueInEUR": {
+            "value": 195025374500,
+            "quality": "Estimated",
+            "comment": "The total revenue for the fiscal year 2023 amounts to 211.915 million USD. The Total Revenue 211915000000 USD has been converted to EUR using the conversion rate of 1 USD = 0.9203 EUR, as of 2023-06-30.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "carbonFootprintInTonnesPerMillionEUREnterpriseValue": null,
+          "ghgIntensityInTonnesPerMillionEURRevenue": {
+            "value": 127.4007,
+            "quality": "Estimated",
+            "comment": "'GHG intensity' was calculated by division of 'Scope 1 and 2 and 3 GHG emissions' by 'Total Revenue'.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "ghgIntensityScope1InTonnesPerMillionEURRevenue": {
+            "value": 0.7433,
+            "quality": "Estimated",
+            "comment": "'GHG intensity - scope 1' was calculated by division of 'Scope 1 GHG emissions' by 'Total Revenue'.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "ghgIntensityScope2InTonnesPerMillionEURRevenue": {
+            "value": 41.4172,
+            "quality": "Estimated",
+            "comment": "'GHG intensity - scope 2' was calculated by division of 'Scope 2 GHG emissions' by 'Total Revenue'.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "ghgIntensityScope3InTonnesPerMillionEURRevenue": {
+            "value": 85.2402,
+            "quality": "Estimated",
+            "comment": "'GHG intensity - scope 3' was calculated by division of 'Scope 3 GHG emissions' by 'Total Revenue'.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "ghgIntensityScope4InTonnesPerMillionEURRevenue": null,
+          "fossilFuelSectorExposure": {
+            "value": "No",
+            "quality": "Reported",
+            "comment": "Microsoft Corporation is not engaged in the fossil fuel sector. According to the information presented in the CDP Climate Change Questionnaire 2023, Microsoft Corporation has not reported any consumption of coal, other non-renewable fuels, or other renewable fuels for the self-production of electricity or heat. The company's total fuel consumption is 473,137 MWh, with 252,475 MWh used for self-production of electricity and 220,661 MWh used for self-production of heat. There is no evidence that Microsoft generates revenue from the exploration, extraction, production, distribution, or refining of fossil fuels.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "financedScope1AndScope2Emissions": null,
+          "financedScope3Emissions": null
+        },
+        "energyPerformance": {
+          "renewableEnergyProductionInGWh": {
+            "value": 3.341,
+            "quality": "Reported",
+            "comment": "3,341 MWh",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "renewableEnergyConsumptionInGWh": {
+            "value": 23567.5,
+            "quality": "Reported",
+            "comment": "The amount of energy consumed from renewable energy sources is 23,567,502 MWh. This information is from the document \"Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf\".",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "nonRenewableEnergyProductionInGWh": null,
+          "relativeNonRenewableEnergyProductionInPercent": null,
+          "nonRenewableEnergyConsumptionInGWh": {
+            "value": 413.955,
+            "quality": "Reported",
+            "comment": "The value of energy consumed from non-renewable energy sources is 413,955 MWh.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "relativeNonRenewableEnergyConsumptionInPercent": {
+            "value": 1.7,
+            "quality": "Estimated",
+            "comment": "The share of non-renewable energy consumption from non-renewable energy sources compared to renewable energy sources can be calculated from the information provided as follows:\n\nTotal energy consumption:\n- Renewable sources: 23,567,502 MWh\n- Non-renewable sources: 413,955 MWh\n- Total: 24,007,868 MWh\n",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "applicableHighImpactClimateSectors": null,
+          "totalHighImpactClimateSectorEnergyConsumptionInGWh": null,
+          "nonRenewableEnergyConsumptionFossilFuelsInGWh": {
+            "value": 473.137,
+            "quality": "Reported",
+            "comment": "The energy consumption from fossil fuels (non-renewable energy source) for Microsoft Corporation is as follows:\n\n- Natural gas: 273,964 MWh\n- Crude oil/Diesel: 199,173 MWh\n- LPG/Propane/Jet Fuel: 54,239 MWh\n- Brown coal and coal: 0 MWh\n\nThe total amount of energy consumption from fossil fuels is therefore 473,137 MWh.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "nonRenewableEnergyConsumptionCrudeOilInGWh": {
+            "value": 160.754,
+            "quality": "Reported",
+            "comment": "The energy consumption from crude oil (non-renewable energy source) for the Microsoft Corporation is as follows:\n\n- FY20: 147,297 MWh\n- FY21: 143,370 MWh\n- FY22: 117,195 MWh\n- FY23: 160,754 MWh",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "nonRenewableEnergyConsumptionNaturalGasInGWh": {
+            "value": 150.972,
+            "quality": "Reported",
+            "comment": "The energy consumption from natural gas (non-renewable energy source) for Microsoft Corporation is as follows:\n\n- FY20: 218,557 MWh\n- FY21: 249,443 MWh\n- FY22: 273,964 MWh\n- FY23: 150,972 MWh",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "nonRenewableEnergyConsumptionLigniteInGWh": null,
+          "nonRenewableEnergyConsumptionCoalInGWh": null,
+          "nonRenewableEnergyConsumptionNuclearEnergyInGWh": null,
+          "nonRenewableEnergyConsumptionOtherInGWh": null
+        },
+        "biodiversity": {
+          "primaryForestAndWoodedLandOfNativeSpeciesExposure": null,
+          "protectedAreasExposure": null,
+          "rareOrEndangeredEcosystemsExposure": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Microsoft Corporation has indicated in their CDP Climate Change Questionnaire 2023 that they have activities in or near biodiversity-sensitive areas in the reporting year (C15.4).",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          },
+          "highlyBiodiverseGrasslandExposure": null,
+          "manufactureOfAgrochemicalPesticidesProducts": null,
+          "landDegradationDesertificationSoilSealingExposure": null,
+          "sustainableAgriculturePolicy": null,
+          "sustainableOceansAndSeasPolicy": null,
+          "threatenedSpeciesExposure": null,
+          "biodiversityProtectionPolicy": null,
+          "deforestationPolicy": null
+        },
+        "water": {
+          "emissionsToWaterInTonnes": null,
+          "waterConsumptionInCubicMeters": {
+            "value": 7844000,
+            "quality": "Reported",
+            "comment": "In the last completed fiscal year (FY23), Microsoft consumed a volume of water of 7,844 megaliters. This corresponds to 7,844,000,000 liters.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "waterReusedInCubicMeters": null,
+          "relativeWaterUsageInCubicMetersPerMillionEURRevenue": {
+            "value": 40.2204,
+            "quality": "Estimated",
+            "comment": "'Relative Water Usage' was calculated by division of 'Water Consumption' by 'Total Revenue'.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "waterManagementPolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, the company has policies and procedures for water management. There is a water policy and there is oversight at the board level on water-related issues within the organization.\n\nRelevant documents and sources:\n- Taskforce on Climate-related Financial Disclosures (TCFD) Report: https://www.microsoft.com/en-us/corporate-responsibility/reports-hub\n- Corporate Social Responsibility (CSR) site: https://www.microsoft.com/en-us/corporate-responsibility/sustainability\n- Environmental Sustainability Report: https://aka.ms/SustainabilityReport2022\n\nSource: MICROSOFT CORPORATION/Microsoft Corporation-CDP Water Security Response 2023.pdf.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/Microsoft Corporation-CDP Water Security Response 2023.pdf",
+              "fileReference": "719932d97ea6d1d3013ddc61faf92a091ae49a76dbf2c4a3f8e954e07c77ca12",
+              "publicationDate": null
+            }
+          },
+          "highWaterStressAreaExposure": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Microsoft has locations in areas with high water stress, defined as regions where the annual baseline water stress is at least \"High (40-80%)\". These locations are identified using the WRI Aqueduct Tool. It is expected that water withdrawals will increase overall as the business grows in the coming years. However, Microsoft has taken measures to invest in these areas and plans to replenish more water than is consumed by 2030, especially in about 40 priority high water stress locations.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_Corporation-CDP_Climate_Change_Response_2023.pdf",
+              "fileReference": "73549154ce3379ff16073accf0e3b6377d41a96b04f813769bb602c922e75116",
+              "publicationDate": null
+            }
+          }
+        },
+        "waste": {
+          "hazardousAndRadioactiveWasteInTonnes": {
+            "value": 195,
+            "quality": "Reported",
+            "comment": "The amount of hazardous waste generated is as follows:\n\n- FY20: 9,469 tons\n- FY21: 1,750 tons\n- FY22: 881 tons\n- FY23: 195 tons",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "nonRecycledWasteInTonnes": {
+            "value": 11729,
+            "quality": "Reported",
+            "comment": "The value of non-recyclable waste generated for FY20 to FY23 is as follows:\n\n- FY20: 11,410 tons\n- FY21: 7,232 tons\n- FY22: 12,445 tons\n- FY23: 11,729 tons",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          }
+        },
+        "emissions": {
+          "emissionsOfInorganicPollutantsInTonnes": null,
+          "emissionsOfAirPollutantsInTonnes": null,
+          "emissionsOfOzoneDepletionSubstancesInTonnes": null,
+          "carbonReductionInitiatives": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Microsoft Corporation has policies and procedures to reduce carbon emissions, aiming to align with the Paris Agreement. Microsoft has publicly committed to conducting its engagement activities in line with the goals of the Paris Agreement. The company has a climate transition plan that aligns with a 1.5°C scenario. Part of this plan includes reducing Scope 1 and 2 emissions to nearly zero by purchasing 100 percent renewable energy by 2025.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          }
+        }
+      },
+      "social": {
+        "socialAndEmployeeMatters": {
+          "humanRightsLegalProceedings": null,
+          "iloCoreLabourStandards": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Microsoft adheres to the core labor standards of the ILO. This is confirmed by compliance with the ILO Declaration on Fundamental Principles and Rights at Work as well as by the requirements placed on suppliers, who are expected to show the same commitment. Further information can be found in the file \"Microsoft RY2023 Conflict Minerals Report.pdf\".",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf",
+              "fileReference": "f1f4f6649b96c188f3014f0ffb60c11bf28f926140e549c2609ead40d928841f",
+              "publicationDate": null
+            }
+          },
+          "environmentalPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "corruptionLegalProceedings": null,
+          "transparencyDisclosurePolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "humanRightsDueDiligencePolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf",
+              "fileReference": "f1f4f6649b96c188f3014f0ffb60c11bf28f926140e549c2609ead40d928841f",
+              "publicationDate": null
+            }
+          },
+          "policyAgainstChildLabour": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/FY23 Microsoft Supply Chain Integrity Statement.pdf",
+              "fileReference": "fe78b19540c14b5c889b3beec7ac18d577cfc2077364cb895a69f16b11b22877",
+              "publicationDate": null
+            }
+          },
+          "policyAgainstForcedLabour": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "policyAgainstDiscriminationInTheWorkplace": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "Microsoft_2024_Environmental_Sustainability_Report_Data_Fact_Sheet.pdf",
+              "fileReference": "4c1fbb19bac0dc58658a1b3f81d9352e676bd2e546224aacc03da3a5b2943ceb",
+              "publicationDate": null
+            }
+          },
+          "iso14001Certificate": null,
+          "policyAgainstBriberyAndCorruption": null,
+          "fairBusinessMarketingAdvertisingPolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Microsoft has introduced guidelines and procedures to implement fair business, marketing, and advertising practices and ensure the security and quality of goods and services. Relevant documents include:\n\n1. Microsoft Global Human Rights Statement\n2. Microsoft Supply Chain Human Rights Policy Statement\n3. Trust Code\n\nThese guidelines and procedures can be found in the following documents:\n\n- MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf\n- MICROSOFT CORPORATION/FY23 Microsoft Supply Chain Integrity Statement.pdf\n\nThese documents contain detailed information on ethical standards and systems for ensuring compliance with these standards by suppliers and business partners.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/FY23 Microsoft Supply Chain Integrity Statement.pdf",
+              "fileReference": "fe78b19540c14b5c889b3beec7ac18d577cfc2077364cb895a69f16b11b22877",
+              "publicationDate": null
+            }
+          },
+          "technologiesExpertiseTransferPolicy": null,
+          "fairCompetitionPolicy": null,
+          "violationOfTaxRulesAndRegulation": null,
+          "unGlobalCompactPrinciplesCompliancePolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf",
+              "fileReference": "f1f4f6649b96c188f3014f0ffb60c11bf28f926140e549c2609ead40d928841f",
+              "publicationDate": null
+            }
+          },
+          "oecdGuidelinesForMultinationalEnterprisesGrievanceHandling": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Microsoft has complaint and grievance handling mechanisms to address violations of the UNGC principles or the OECD Guidelines for Multinational Enterprises. Microsoft provides an anonymous complaint reporting mechanism for employees and other stakeholders who may be affected by the company's business activities. Microsoft's Integrity Portal allows for anonymous reporting of compliance issues or concerns regarding Microsoft's business activities, including the company's responsible sourcing policy or that of its suppliers. Additionally, the Worker Voice Hotline Program is being scaled in supplier factories, providing workers with a reliable and anonymous platform for reporting workplace issues.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf",
+              "fileReference": "f1f4f6649b96c188f3014f0ffb60c11bf28f926140e549c2609ead40d928841f",
+              "publicationDate": null
+            }
+          },
+          "averageGrossHourlyEarningsMaleEmployees": null,
+          "averageGrossHourlyEarningsFemaleEmployees": null,
+          "unadjustedGenderPayGapInPercent": null,
+          "femaleBoardMembersSupervisoryBoard": null,
+          "femaleBoardMembersBoardOfDirectors": null,
+          "maleBoardMembersSupervisoryBoard": null,
+          "maleBoardMembersBoardOfDirectors": null,
+          "boardGenderDiversitySupervisoryBoardInPercent": null,
+          "boardGenderDiversityBoardOfDirectorsInPercent": null,
+          "controversialWeaponsExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "workplaceAccidentPreventionPolicy": null,
+          "rateOfAccidents": null,
+          "workdaysLostInDays": null,
+          "supplierCodeOfConduct": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf",
+              "fileReference": "f1f4f6649b96c188f3014f0ffb60c11bf28f926140e549c2609ead40d928841f",
+              "publicationDate": null
+            }
+          },
+          "grievanceHandlingMechanism": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Microsoft has a mechanism for processing complaints regarding employee issues. Microsoft offers an anonymous complaint mechanism for employees and other stakeholders who may be affected by the company's business activities. Complaints can be submitted via the Integrity Portal, where employees and others can ask compliance questions or report concerns regarding Microsoft's business activities, including the company's responsible sourcing policy or its suppliers. Reports of potential violations of laws or Microsoft policies are escalated to the Business and Regulatory Investigations Team of Compliance & Ethics (C&E). Reports of employee behavior in the workplace are escalated to the Workplace Investigations Team of C&E.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf",
+              "fileReference": "f1f4f6649b96c188f3014f0ffb60c11bf28f926140e549c2609ead40d928841f",
+              "publicationDate": null
+            }
+          },
+          "whistleblowerProtectionPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/Microsoft RY2023 Conflict Minerals Report.pdf",
+              "fileReference": "f1f4f6649b96c188f3014f0ffb60c11bf28f926140e549c2609ead40d928841f",
+              "publicationDate": null
+            }
+          },
+          "reportedIncidentsOfDiscrimination": null,
+          "sanctionedIncidentsOfDiscrimination": null,
+          "excessiveCeoPayRatio": null
+        },
+        "greenSecurities": null,
+        "humanRights": {
+          "humanRightsPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/FY23 Microsoft Supply Chain Integrity Statement.pdf",
+              "fileReference": "fe78b19540c14b5c889b3beec7ac18d577cfc2077364cb895a69f16b11b22877",
+              "publicationDate": null
+            }
+          },
+          "humanRightsDueDiligence": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Microsoft has due diligence processes in place to identify, prevent, mitigate, and address negative impacts on human rights. These processes include:\n\n1. **Risk Assessment**: Microsoft conducts an annual enterprise-wide risk assessment of the supply chain to identify human rights risks.\n2. **Risk Mitigation**: Risk mitigation measures are carried out throughout the entire lifecycle of a supplier, including onboarding, monitoring, and offboarding.\n3. **Policies and Standards**: Microsoft has established high ethical standards and policies such as the Microsoft Global Human Rights Statement and the Microsoft Supply Chain Human Rights Policy Statement, which also apply to suppliers and business partners.\n4. **Alignment with International Standards**: Microsoft aligns its due diligence practices with leading standards, including the UN Guiding Principles on Business and Human Rights (UNGPs) and the OECD Guidelines for Multinational Enterprises.\n5. **Continuous Improvement**: Microsoft is committed to continuously improving and expanding existing governance, risk assessment, and due diligence activities to mitigate and prevent the risks of human rights and environmental impacts.\n6. **Technical and Philanthropic Efforts**: Microsoft contributes to technical and philanthropic efforts and develops technologies to address the root causes of human rights and environmental issues.\n\nThese measures demonstrate that Microsoft has implemented comprehensive due diligence processes to identify, prevent, mitigate, and address negative impacts on human rights.",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/FY23 Microsoft Supply Chain Integrity Statement.pdf",
+              "fileReference": "fe78b19540c14b5c889b3beec7ac18d577cfc2077364cb895a69f16b11b22877",
+              "publicationDate": null
+            }
+          },
+          "traffickingInHumanBeingsPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": null,
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/FY23 Microsoft Supply Chain Integrity Statement.pdf",
+              "fileReference": "fe78b19540c14b5c889b3beec7ac18d577cfc2077364cb895a69f16b11b22877",
+              "publicationDate": null
+            }
+          },
+          "reportedChildLabourIncidents": null,
+          "reportedForcedOrCompulsoryLabourIncidents": {
+            "value": "No",
+            "quality": "Reported",
+            "comment": "In FY23, no cases of forced labor were identified in the category of freely chosen employment in the electronics supply chain, which is the supplier category with the highest risk of forced labor. However, certain risk factors that violate Microsoft policies were identified, including:\n\n- 1 case of bonded labor (closed)\n- 2 cases of inappropriate restrictions on termination of employment (closed)\n- 10 cases of prohibited recruitment fees (9 closed, 1 in progress)\n- 1 case of educational loans with required term commitment and repayment (closed)\n- 5 cases without policies or procedures prohibiting forced labor and human trafficking or lacking a plan to monitor the risks (2 closed, 3 in progress)\n- 1 case of withholding worker identity documents (in progress)\n- 2 cases of restrictions on leaving the site outside of working hours (closed)\n- 1 case of restriction of access to basic freedoms (closed)",
+            "dataSource": {
+              "page": null,
+              "tagName": null,
+              "fileName": "MICROSOFT CORPORATION/FY23 Microsoft Supply Chain Integrity Statement.pdf",
+              "fileReference": "fe78b19540c14b5c889b3beec7ac18d577cfc2077364cb895a69f16b11b22877",
+              "publicationDate": null
+            }
+          },
+          "numberOfReportedIncidentsOfHumanRightsViolations": null
+        },
+        "antiCorruptionAndAntiBribery": null
+      }
+    }
+  }
+]

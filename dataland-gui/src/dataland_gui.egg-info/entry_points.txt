@@ -1,0 +1,2 @@
+[console_scripts]
+dataland-gui = dataland_gui.webapp:main

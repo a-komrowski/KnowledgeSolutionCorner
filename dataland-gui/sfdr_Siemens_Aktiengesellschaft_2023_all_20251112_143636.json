@@ -1,0 +1,1024 @@
+[
+  {
+    "metaInfo": {
+      "dataId": "not available",
+      "companyId": "f16a12ff-714c-4dd1-b141-eb8b0355c833",
+      "dataType": "sfdr",
+      "uploaderUserId": null,
+      "uploadTime": 1754466296061,
+      "reportingPeriod": "2023",
+      "currentlyActive": true,
+      "qaStatus": "Accepted",
+      "ref": null
+    },
+    "data": {
+      "general": {
+        "general": {
+          "dataDate": "2023-12-04",
+          "fiscalYearDeviation": "Deviation",
+          "fiscalYearEnd": "2023-09-30",
+          "referencedReports": {
+            "sustainability-report-fy2023.pdf": {
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "fileName": "sustainability-report-fy2023.pdf",
+              "publicationDate": null
+            },
+            "siemens-environmental-policies-overview.pdf": {
+              "fileReference": "a7b4f2834e17e16df3b48eb532e6f4d250854e3028d30fe4b25911c5450edee7",
+              "fileName": "siemens-environmental-policies-overview.pdf",
+              "publicationDate": null
+            },
+            "SAG-LkSG-Policy-Statement.pdf": {
+              "fileReference": "3a3753ea17b20e051ae37023b89b9dc829eeb85989d53b00b152d914efa5dec8",
+              "fileName": "SAG-LkSG-Policy-Statement.pdf",
+              "publicationDate": null
+            },
+            "sag-bcg-en.pdf": {
+              "fileReference": "d876fd70047cf2a91dfd5bc274804c1b9b562e15f724bdc5f875619e4f1b90cb",
+              "fileName": "sag-bcg-en.pdf",
+              "publicationDate": null
+            },
+            "CoC-Brochure-en.pdf": {
+              "fileReference": "32c9d5cd5996631272de9a5f56627a635633fd4b1483eec8ece78ebe34fd1a59",
+              "fileName": "CoC-Brochure-en.pdf",
+              "publicationDate": null
+            },
+            "Siemens_Report_FY2023.pdf": {
+              "fileReference": "a1bde2b6f7b0408c34ee7188cff4fe42feccd3a886eaf47c05827aa3452969b1",
+              "fileName": "Siemens_Report_FY2023.pdf",
+              "publicationDate": null
+            }
+          }
+        }
+      },
+      "environmental": {
+        "greenhouseGasEmissions": {
+          "scope1GhgEmissionsInTonnes": {
+            "value": 387000,
+            "quality": "Reported",
+            "comment": "The greenhouse gas emissions for Scope 1 amount to a total of 387,000 tonnes of CO2e in the fiscal year 2023 and 393,000 tonnes of CO2e in the fiscal year 2022. Source: sustainability-report-fy2023.pdf, page 60.",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope2GhgEmissionsInTonnes": {
+            "value": 624000,
+            "quality": "Reported",
+            "comment": "The location-based method was used for computing the Scope 2 GHG Emissions.",
+            "dataSource": {
+              "page": "109",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope2GhgEmissionsLocationBasedInTonnes": {
+            "value": 624000,
+            "quality": "Reported",
+            "comment": "The location-based Scope 2 greenhouse gas emissions for the fiscal year amount to 624,000 metric tons of CO2e. Page 109.",
+            "dataSource": {
+              "page": "109",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope2GhgEmissionsMarketBasedInTonnes": {
+            "value": 163000,
+            "quality": "Reported",
+            "comment": "The Scope 2 greenhouse gas emissions, calculated according to the market-based method, totaled 163,000 metric tons of CO2e in the business year 2023. Compared to the previous year 2022, in which emissions were 189,000 metric tons of CO2e, this represents a reduction of 13.8%.",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope1And2GhgEmissionsInTonnes": {
+            "value": 1011000,
+            "quality": "Reported",
+            "comment": "The location-based method was used for computing the Scope 2 GHG Emissions.",
+            "dataSource": {
+              "page": "109",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope1And2GhgEmissionsLocationBasedInTonnes": {
+            "value": 1011000,
+            "quality": "Reported",
+            "comment": "The total of Scope 1 and 2 greenhouse gas emissions using the location-based method for calculating Scope 2 greenhouse gas emissions is 1,011,000.00 metric tons of CO2e for the fiscal year.",
+            "dataSource": {
+              "page": "109",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope1And2GhgEmissionsMarketBasedInTonnes": {
+            "value": 550000,
+            "quality": "Reported",
+            "comment": "The sum of Scope 1 and 2 greenhouse gas emissions using the market-based method to calculate Scope 2 greenhouse gas emissions is 550,000 metric tons of CO2e for the fiscal year 2023.来源：sustainability-report-fy2023.pdf, page 60.",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope3GhgEmissionsInTonnes": {
+            "value": 483188000,
+            "quality": "Reported",
+            "comment": "Siemens greenhouse gas emissions for Scope 3 amounted to a total of 483,188,000 tonnes of CO2e in the business year 2023. Page 60.",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope3UpstreamGhgEmissionsInTonnes": {
+            "value": 11048000,
+            "quality": "Reported",
+            "comment": "The relevant document states that the sum of Scope 3 upstream greenhouse gas emissions for Siemens Aktiengesellschaft in 2023 is 11,048 thousand metric tons of CO2 equivalents.",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope3DownstreamGhgEmissionsInTonnes": {
+            "value": 472140000,
+            "quality": "Reported",
+            "comment": "The relevant document states that the sum of Scope 3 downstream greenhouse gas emissions for Siemens Aktiengesellschaft in 2023 is 472,140 thousand metric tons of CO2 equivalents.",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope1And2And3GhgEmissionsInTonnes": {
+            "value": 484199000,
+            "quality": "Estimated",
+            "comment": "The location-based method was used for computing the Scope 2 GHG Emissions.",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope1And2And3GhgEmissionsLocationBasedInTonnes": {
+            "value": 484199000,
+            "quality": "Estimated",
+            "comment": "Calculated based on the rule that Scope 1 GHG emissions, Scope 2 GHG emissions (location-based), and Scope 3 GHG emissions should sum up to Scope 1 and 2 and 3 GHG emissions (location-based).",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope1And2And3GhgEmissionsMarketBasedInTonnes": {
+            "value": 483738000,
+            "quality": "Estimated",
+            "comment": "From the relevant document the sum of Scope 1, 2 (market-based), and 3 greenhouse gas emissions for Siemens Aktiengesellschaft in 2023 can be derived. The total is 483,738 thousand metric tons of CO2 equivalents.",
+            "dataSource": {
+              "page": "107-109",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "scope4GhgEmissionsInTonnes": null,
+          "enterpriseValueInEUR": null,
+          "totalRevenueInEUR": {
+            "value": 78000000000,
+            "quality": "Reported",
+            "comment": "The relevant document states that the total revenue for Siemens Aktiengesellschaft in 2023 is 78,000 million Euros.",
+            "dataSource": {
+              "page": "2",
+              "tagName": null,
+              "fileName": "Siemens_Report_FY2023.pdf",
+              "fileReference": "a1bde2b6f7b0408c34ee7188cff4fe42feccd3a886eaf47c05827aa3452969b1",
+              "publicationDate": null
+            }
+          },
+          "carbonFootprintInTonnesPerMillionEUREnterpriseValue": null,
+          "ghgIntensityInTonnesPerMillionEURRevenue": {
+            "value": 6201.76923077,
+            "quality": "Reported",
+            "comment": "Dividing the total scope 1, 2 and 3 emission (483738000 tonnes GHG emissions) by the total revenue (78,000 million USD) we get that the GHG intensity for Siemens Aktiengesellschaft in 2023 is 6201.76923077 tonnes GHG per one million units of revenue in USD.",
+            "dataSource": {
+              "page": "109",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "ghgIntensityScope1InTonnesPerMillionEURRevenue": {
+            "value": 4.9615,
+            "quality": "Estimated",
+            "comment": "'GHG intensity - scope 1' was calculated by division of 'Scope 1 GHG emissions' by 'Total Revenue'.",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "ghgIntensityScope2InTonnesPerMillionEURRevenue": {
+            "value": 8,
+            "quality": "Estimated",
+            "comment": "'GHG intensity - scope 2' was calculated by division of 'Scope 2 GHG emissions' by 'Total Revenue'.",
+            "dataSource": {
+              "page": "109",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "ghgIntensityScope3InTonnesPerMillionEURRevenue": {
+            "value": 6194.7179,
+            "quality": "Estimated",
+            "comment": "'GHG intensity - scope 3' was calculated by division of 'Scope 3 GHG emissions' by 'Total Revenue'.",
+            "dataSource": {
+              "page": "60",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "ghgIntensityScope4InTonnesPerMillionEURRevenue": null,
+          "fossilFuelSectorExposure": {
+            "value": null,
+            "quality": "Incomplete",
+            "comment": "The relevant document does not explicitly mention the fossilFuelSectorExposure for Siemens Aktiengesellschaft in 2023.",
+            "dataSource": {
+              "page": "77-79",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "financedScope1AndScope2Emissions": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": "",
+            "dataSource": null
+          },
+          "financedScope3Emissions": {
+            "value": 3000000,
+            "quality": "Reported",
+            "comment": "The total Scope 3 greenhouse gas emissions from financed companies amount to 3,000,000 metric tons of CO2e over the expected duration of financing these projects.",
+            "dataSource": {
+              "page": "63",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          }
+        },
+        "energyPerformance": {
+          "renewableEnergyProductionInGWh": null,
+          "renewableEnergyConsumptionInGWh": {
+            "value": 1293.82,
+            "quality": "Estimated",
+            "comment": "The relevant document states that the total energy consumption, primary and secondary energy, for Siemens Aktiengesellschaft in 2023 is 9,115 thousand gigajoules, which is equivalent to 2,531.94 GWh. The share of renewable energy is 51.1%.",
+            "dataSource": {
+              "page": "109-111",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "nonRenewableEnergyProductionInGWh": null,
+          "relativeNonRenewableEnergyProductionInPercent": {
+            "value": 48.9,
+            "quality": "Estimated",
+            "comment": "In the fiscal year 2023, the share of renewable energy sources in the total energy production was 51.1%. The share of non-renewable energy sources can therefore be calculated as 100% - 51.1% = 48.9%.\n\nThe total energy production was 9,115,000 GJ, of which 4,426,000 GJ came from renewable sources. To calculate the share of non-renewable energy sources in GWh, the total energy production in GJ is converted to GWh.\n\n1 GJ is equivalent to 0.27778 MWh, and 1 MWh is equivalent to 1 GWh. Therefore:\n9,115,000 GJ * 0.27778 MWh/GJ = 2,530,000 MWh = 2,530 GWh (rounded).\n\nThe non-renewable energy production is therefore:\n9,115,000 GJ - 4,426,000 GJ = 4,689,000 GJ.\nConverted to GWh:\n4,689,000 GJ * 0.27778 MWh/GJ = 1,303 GWh (rounded).\n\nThese data are from the document \"sustainability-report-fy2023.pdf\", page 111.",
+            "dataSource": {
+              "page": "111",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "nonRenewableEnergyConsumptionInGWh": {
+            "value": 1241.05,
+            "quality": "Estimated",
+            "comment": "The relevant document states that the total non-renewable energy consumption for Siemens Aktiengesellschaft in 2023 is 48.9%  of the total energy consumption. This value is converted from thousand GJ to GWh.",
+            "dataSource": {
+              "page": "109-111",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "relativeNonRenewableEnergyConsumptionInPercent": {
+            "value": 48.9,
+            "quality": "Reported",
+            "comment": "In the 2023 financial year, Siemens' total energy consumption was 9,115,000 GJ, with renewable energy sources accounting for 51.1%. This means that consumption from non-renewable energy sources is 48.9%.\n\nTo convert Gigajoules (GJ) to Gigawatt hours (GWh), the conversion factor of 1 GJ being equal to 0.27778 GWh is used.\n\nThe total energy consumption from renewable sources is:\n9,115,000 GJ * 51.1% = 4,655,765 GJ\nConverted to GWh:\n4,655,765 GJ * 0.27778 = 1,292,000 GWh (rounded)\n\nThe total energy consumption from non-renewable sources is:\n9,115,000 GJ * 48.9% = 4,459,235 GJ\nConverted to GWh:\n4,459,235 GJ * 0.27778 = 1,238,000 GWh (rounded)",
+            "dataSource": {
+              "page": "111",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "applicableHighImpactClimateSectors": null,
+          "totalHighImpactClimateSectorEnergyConsumptionInGWh": null,
+          "nonRenewableEnergyConsumptionFossilFuelsInGWh": {
+            "value": 696.9,
+            "quality": "Estimated",
+            "comment": "The energy consumption from non renewable fossil fuels (sum of crude oil, natural gas, lignite, and coal) is a total of 2,509,000 gigajoules (GJ) for primary energy in the fiscal year 2023. To convert this unit into gigawatt hours (GWh), the following conversion is used:\n\n1 GJ = 0.00027778 GWh\n\nTherefore:\n\n2,509,000 GJ * 0.00027778 GWh/GJ = 696.9 GWh\n\nThe source of this information is the \"SIEMENS SUSTAINABILITY REPORT 2023\", page 111.",
+            "dataSource": {
+              "page": "111",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "nonRenewableEnergyConsumptionCrudeOilInGWh": {
+            "value": 64.444,
+            "quality": "Estimated",
+            "comment": "The energy consumption from crude oil (non-renewable energy source) in the fiscal year 2023 totals 232,000 Gigajoules (GJ).\n\nConversion from Gigajoules (GJ) to Gigawatt hours (GWh):\n1 GJ is equivalent to 0.00027778 GWh.\nTherefore:\n232,000 GJ * 0.00027778 GWh/GJ = 64,444 GWh.\n\nThe source of this information is the file \"sustainability-report-fy2023.pdf\", page 111.",
+            "dataSource": {
+              "page": "111",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "nonRenewableEnergyConsumptionNaturalGasInGWh": {
+            "value": 632.5,
+            "quality": "Estimated",
+            "comment": "The energy consumption from natural gas (non-renewable energy source) in the fiscal year 2023 is 2,277,000 gigajoules (GJ).\n\nConversion from gigajoules to gigawatt hours (GWh):\n1 GJ is equal to 0.00027778 GWh.\nTherefore:\n2,277,000 GJ * 0.00027778 GWh/GJ = 632.5 GWh.\n\nThe source of this information is the \"sustainability-report-fy2023.pdf\", page 111.",
+            "dataSource": {
+              "page": "111",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "nonRenewableEnergyConsumptionLigniteInGWh": null,
+          "nonRenewableEnergyConsumptionCoalInGWh": null,
+          "nonRenewableEnergyConsumptionNuclearEnergyInGWh": null,
+          "nonRenewableEnergyConsumptionOtherInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": "",
+            "dataSource": null
+          }
+        },
+        "biodiversity": {
+          "primaryForestAndWoodedLandOfNativeSpeciesExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "protectedAreasExposure": {
+            "value": null,
+            "quality": "Incomplete",
+            "comment": "The relevant document does not explicitly mention the protectedAreasExposure for Siemens Aktiengesellschaft in 2023.",
+            "dataSource": {
+              "page": "145-147",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "rareOrEndangeredEcosystemsExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "highlyBiodiverseGrasslandExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "manufactureOfAgrochemicalPesticidesProducts": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "landDegradationDesertificationSoilSealingExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "sustainableAgriculturePolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "sustainableOceansAndSeasPolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "threatenedSpeciesExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "biodiversityProtectionPolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, there is a guideline for the protection of biodiversity that covers facilities located in ownership, lease, management, or adjacent to a protected area or an area of high biodiversity value outside of protected areas. This information can be found in the document \"sustainability-report-fy2023.pdf\" on page 69.",
+            "dataSource": {
+              "page": "69",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "deforestationPolicy": {
+            "value": null,
+            "quality": "Incomplete",
+            "comment": "The relevant document does not explicitly mention a deforestation policy for Siemens Aktiengesellschaft in 2023.",
+            "dataSource": {
+              "page": "63-65",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          }
+        },
+        "water": {
+          "emissionsToWaterInTonnes": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": "",
+            "dataSource": null
+          },
+          "waterConsumptionInCubicMeters": {
+            "value": 510000,
+            "quality": "Reported",
+            "comment": "The amount of water consumed in the last completed fiscal year was 0.51 million cubic meters, equivalent to 510,000,000 liters. The source of this information is the file \"sustainability-report-fy2023.pdf\", page 69.",
+            "dataSource": {
+              "page": "69",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "waterReusedInCubicMeters": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": "",
+            "dataSource": null
+          },
+          "relativeWaterUsageInCubicMetersPerMillionEURRevenue": {
+            "value": 6.5385,
+            "quality": "Estimated",
+            "comment": "'Relative Water Usage' was calculated by division of 'Water Consumption' by 'Total Revenue'.",
+            "dataSource": {
+              "page": "69",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "waterManagementPolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, the company has implemented guidelines and procedures for water management. The source is: sustainability-report-fy2023.pdf, page 141.",
+            "dataSource": {
+              "page": "141",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "highWaterStressAreaExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          }
+        },
+        "waste": {
+          "hazardousAndRadioactiveWasteInTonnes": {
+            "value": 12700,
+            "quality": "Reported",
+            "comment": "The relevant document states that the amount of hazardous waste for Siemens Aktiengesellschaft in 2023 is 12,700 metric tons.",
+            "dataSource": {
+              "page": "149-151",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "nonRecycledWasteInTonnes": {
+            "value": 50200,
+            "quality": "Estimated",
+            "comment": "The total waste for Siemens Aktiengesellschaft in 2023 is 261.2 thousand tons, and the recycling and recovery is 203.8 thousand tons from non-hazardous waste and 7.2 thousand tons from hazardous waste. The non-recycled waste is the difference between these values.",
+            "dataSource": {
+              "page": "111-113",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          }
+        },
+        "emissions": {
+          "emissionsOfInorganicPollutantsInTonnes": null,
+          "emissionsOfAirPollutantsInTonnes": null,
+          "emissionsOfOzoneDepletionSubstancesInTonnes": {
+            "value": 0.044,
+            "quality": "Reported",
+            "comment": "The total amount of ozone-depleting substances (ODS) emitted in the fiscal year 2023 is 0.044 tons (or 44 kg) in total. The specific emissions for each substance are not provided.\n\nSource of this information is the \"SIEMENS SUSTAINABILITY REPORT 2023\", page 67.",
+            "dataSource": {
+              "page": "67",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "carbonReductionInitiatives": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Siemens Aktiengesellschaft has defined measures and targets to reduce carbon emissions, aiming to align with the Paris Agreement. As part of the Science-Based Targets Initiative (SBTi), Siemens has set a goal to reduce emissions from its own operations (Scope 1 and 2) by 50% by 2030 and emissions from its value chain (Scope 3) by 15% compared to 2019. Additionally, the goal has been set to reduce CO2e emissions in the supply chain by 20% by 2030 compared to 2020 and achieve net-zero emissions in the supply chain by 2050.\n\nSource: Sustainability Report FY 2023, pages 58-60.",
+            "dataSource": {
+              "page": "58",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          }
+        }
+      },
+      "social": {
+        "socialAndEmployeeMatters": {
+          "humanRightsLegalProceedings": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "iloCoreLabourStandards": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "Siemens has committed to respecting the core labor standards of the International Labor Organization (ILO). This is supported by the Siemens Business Conduct Guidelines (BCGs), which establish binding principles and rules for action regarding human rights and labor standards. In addition, Siemens has signed an International Framework Agreement that reaffirms the fundamental labor rights of employees, including the right to collective bargaining and freedom of association.",
+            "dataSource": {
+              "page": "41",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "environmentalPolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Siemens has an environmental policy. The source is the document \"siemens-environmental-policies-overview.pdf\", page 1.",
+            "dataSource": {
+              "page": "1",
+              "tagName": null,
+              "fileName": "siemens-environmental-policies-overview.pdf",
+              "fileReference": "a7b4f2834e17e16df3b48eb532e6f4d250854e3028d30fe4b25911c5450edee7",
+              "publicationDate": null
+            }
+          },
+          "corruptionLegalProceedings": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "transparencyDisclosurePolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "humanRightsDueDiligencePolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Siemens has introduced guidelines to support human rights and exercise due diligence. These guidelines are enshrined in the document on page 40.",
+            "dataSource": {
+              "page": "40",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "policyAgainstChildLabour": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Siemens has introduced guidelines to eliminate all forms of child labor. These guidelines are enshrined in the \"Supplier Code of Conduct,\" which is part of the contractual agreements with direct suppliers. The code includes, among other things, a ban on child labor. The source of this information is the document \"sustainability-report-fy2023.pdf,\" page 41.",
+            "dataSource": {
+              "page": "41",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "policyAgainstForcedLabour": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Siemens has introduced guidelines to abolish all forms of forced labor. These guidelines are documented in the \"SAG-LkSG-Policy-Statement.pdf\" on page 5.",
+            "dataSource": {
+              "page": "5",
+              "tagName": null,
+              "fileName": "SAG-LkSG-Policy-Statement.pdf",
+              "fileReference": "3a3753ea17b20e051ae37023b89b9dc829eeb85989d53b00b152d914efa5dec8",
+              "publicationDate": null
+            }
+          },
+          "policyAgainstDiscriminationInTheWorkplace": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, guidelines have been introduced to eliminate discrimination in the workplace. The commitment to human rights is embedded in the Siemens Business Conduct Guidelines (BCGs) and the global human rights policy. These guidelines state, among other things: \"We respect the personal dignity, privacy, and rights of each individual. We believe that diversity enriches our workplace.\"",
+            "dataSource": {
+              "page": "89",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "iso14001Certificate": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, the company is certified according to ISO 14001. At least 182 locations, of which 180 have been audited by external inspectors, have environmental management systems that are certified according to the ISO 14001 standard. The information can be found on page 56 of the document.",
+            "dataSource": {
+              "page": "56",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "policyAgainstBriberyAndCorruption": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, there is a policy against corruption and bribery that is in line with the United Nations Convention against Corruption. The source is the document \"sag-bcg-en.pdf\", page 10.",
+            "dataSource": {
+              "page": "10",
+              "tagName": null,
+              "fileName": "sag-bcg-en.pdf",
+              "fileReference": "d876fd70047cf2a91dfd5bc274804c1b9b562e15f724bdc5f875619e4f1b90cb",
+              "publicationDate": null
+            }
+          },
+          "fairBusinessMarketingAdvertisingPolicy": null,
+          "technologiesExpertiseTransferPolicy": {
+            "value": null,
+            "quality": "Incomplete",
+            "comment": "The relevant document does not explicitly mention the technologiesExpertiseTransferPolicy for Siemens Aktiengesellschaft in 2023.",
+            "dataSource": {
+              "page": "33-35",
+              "tagName": null,
+              "fileName": "CoC-Brochure-en.pdf",
+              "fileReference": "32c9d5cd5996631272de9a5f56627a635633fd4b1483eec8ece78ebe34fd1a59",
+              "publicationDate": null
+            }
+          },
+          "fairCompetitionPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "Yes, there are guidelines and procedures related to fair competition and anti-competitive cartels. This information can be found in the document on page 28.",
+            "dataSource": {
+              "page": "28",
+              "tagName": null,
+              "fileName": "CoC-Brochure-en.pdf",
+              "fileReference": "32c9d5cd5996631272de9a5f56627a635633fd4b1483eec8ece78ebe34fd1a59",
+              "publicationDate": null
+            }
+          },
+          "violationOfTaxRulesAndRegulation": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "unGlobalCompactPrinciplesCompliancePolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Siemens has a policy for monitoring compliance with the UNGC principles and the OECD Guidelines for Multinational Enterprises. This information can be found in the document on page 19.",
+            "dataSource": {
+              "page": "19",
+              "tagName": null,
+              "fileName": "sag-bcg-en.pdf",
+              "fileReference": "d876fd70047cf2a91dfd5bc274804c1b9b562e15f724bdc5f875619e4f1b90cb",
+              "publicationDate": null
+            }
+          },
+          "oecdGuidelinesForMultinationalEnterprisesGrievanceHandling": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Siemens offers protected channels for reporting violations of internal and external rules, including possible breaches of the UNGC principles and the OECD guidelines for multinational enterprises. These reports are forwarded to the compliance organization and tracked. Reporting mechanisms include the \"Tell Us\" system and an external ombudsperson, both of which enable confidential and anonymous reporting. Procedures for handling complaints are binding and consider the presumption of innocence as well as the participation rights of employee representatives.",
+            "dataSource": {
+              "page": "10",
+              "tagName": null,
+              "fileName": "SAG-LkSG-Policy-Statement.pdf",
+              "fileReference": "3a3753ea17b20e051ae37023b89b9dc829eeb85989d53b00b152d914efa5dec8",
+              "publicationDate": null
+            }
+          },
+          "averageGrossHourlyEarningsMaleEmployees": null,
+          "averageGrossHourlyEarningsFemaleEmployees": null,
+          "unadjustedGenderPayGapInPercent": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": "",
+            "dataSource": null
+          },
+          "femaleBoardMembersSupervisoryBoard": {
+            "value": 9,
+            "quality": "Reported",
+            "comment": "In the supervisory board of Siemens Aktiengesellschaft, currently 9 women are represented. The source of this information is the file \"Siemens_Report_FY2023.pdf\", page 212.",
+            "dataSource": {
+              "page": "212",
+              "tagName": null,
+              "fileName": "Siemens_Report_FY2023.pdf",
+              "fileReference": "a1bde2b6f7b0408c34ee7188cff4fe42feccd3a886eaf47c05827aa3452969b1",
+              "publicationDate": null
+            }
+          },
+          "femaleBoardMembersBoardOfDirectors": {
+            "value": 1,
+            "quality": "Estimated",
+            "comment": "In the Managing Board of Siemens Aktiengesellschaft, there is a woman named Judith Wiese.",
+            "dataSource": {
+              "page": "210",
+              "tagName": null,
+              "fileName": "Siemens_Report_FY2023.pdf",
+              "fileReference": "a1bde2b6f7b0408c34ee7188cff4fe42feccd3a886eaf47c05827aa3452969b1",
+              "publicationDate": null
+            }
+          },
+          "maleBoardMembersSupervisoryBoard": {
+            "value": 11,
+            "quality": "Reported",
+            "comment": "In the supervisory board of Siemens Aktiengesellschaft, 11 men are represented. The source of this information is the file \"Siemens_Report_FY2023.pdf\", page 212.",
+            "dataSource": {
+              "page": "212",
+              "tagName": null,
+              "fileName": "Siemens_Report_FY2023.pdf",
+              "fileReference": "a1bde2b6f7b0408c34ee7188cff4fe42feccd3a886eaf47c05827aa3452969b1",
+              "publicationDate": null
+            }
+          },
+          "maleBoardMembersBoardOfDirectors": {
+            "value": 4,
+            "quality": "Reported",
+            "comment": "The relevant document states that the Managing Board consist of 4 men and one women.",
+            "dataSource": {
+              "page": "207-209",
+              "tagName": null,
+              "fileName": "Siemens_Report_FY2023.pdf",
+              "fileReference": "a1bde2b6f7b0408c34ee7188cff4fe42feccd3a886eaf47c05827aa3452969b1",
+              "publicationDate": null
+            }
+          },
+          "boardGenderDiversitySupervisoryBoardInPercent": {
+            "value": 45,
+            "quality": "Reported",
+            "comment": "The percentage of female supervisory board members is 45%. Page 212.",
+            "dataSource": {
+              "page": "212",
+              "tagName": null,
+              "fileName": "Siemens_Report_FY2023.pdf",
+              "fileReference": "a1bde2b6f7b0408c34ee7188cff4fe42feccd3a886eaf47c05827aa3452969b1",
+              "publicationDate": null
+            }
+          },
+          "boardGenderDiversityBoardOfDirectorsInPercent": {
+            "value": 20,
+            "quality": "Estimated",
+            "comment": "The relevant document states that the Managing Board has one female member, Judith Wiese, out of a total of 5 members. This results in a percentage of 20% female board members.",
+            "dataSource": {
+              "page": "209-211",
+              "tagName": null,
+              "fileName": "Siemens_Report_FY2023.pdf",
+              "fileReference": "a1bde2b6f7b0408c34ee7188cff4fe42feccd3a886eaf47c05827aa3452969b1",
+              "publicationDate": null
+            }
+          },
+          "controversialWeaponsExposure": {
+            "value": null,
+            "quality": "Incomplete",
+            "comment": "The relevant document does not explicitly mention the controversialWeaponsExposure for Siemens Aktiengesellschaft in 2023.",
+            "dataSource": {
+              "page": "149-151",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "workplaceAccidentPreventionPolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, there is an accident prevention policy in place at the workplace. The relevant information can be found in the document \"sustainability-report-fy2023.pdf\" on page 97.",
+            "dataSource": {
+              "page": "97",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "rateOfAccidents": {
+            "value": 0.24,
+            "quality": "Reported",
+            "comment": "The Lost Time Injury Frequency Rate (LTIFR) for the fiscal year 2023 is 0.23 for employees and 0.30 for temporary workers. The total LTIFR is 0.24. These values are calculated as (number of accidents * 200,000) / total number of hours worked by all employees. \n\nSource: sustainability-report-fy2023.pdf, page 122.",
+            "dataSource": {
+              "page": "122",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "workdaysLostInDays": {
+            "value": 805,
+            "quality": "Reported",
+            "comment": "In fiscal year 2023, a total of 805 lost workdays due to injuries (Lost Time Injuries) were recorded. The number of lost workdays due to illnesses is 62 cases of occupational diseases.",
+            "dataSource": {
+              "page": "122",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "supplierCodeOfConduct": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, there is a supplier code of conduct that addresses unsafe working conditions, precarious work, child labor, and forced labor. The source is the document \"SAG-LkSG-Policy-Statement.pdf\", page 5.",
+            "dataSource": {
+              "page": "5",
+              "tagName": null,
+              "fileName": "SAG-LkSG-Policy-Statement.pdf",
+              "fileReference": "3a3753ea17b20e051ae37023b89b9dc829eeb85989d53b00b152d914efa5dec8",
+              "publicationDate": null
+            }
+          },
+          "grievanceHandlingMechanism": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "Siemens offers a mechanism for handling complaints related to employee issues. Complaints can be reported through various channels, including the protected whistleblower system \"Tell Us\" and the independent Siemens ombudsman. All incoming reports of possible violations are addressed in a binding, company-wide process that considers the presumption of innocence in favor of the accused. It also takes into account the participation rights of employee representatives. The confidentiality of the whistleblower's identity is maintained unless the whistleblower chooses to remain anonymous. In cases of proven violations by employees, appropriate disciplinary measures are taken.",
+            "dataSource": {
+              "page": "10",
+              "tagName": null,
+              "fileName": "SAG-LkSG-Policy-Statement.pdf",
+              "fileReference": "3a3753ea17b20e051ae37023b89b9dc829eeb85989d53b00b152d914efa5dec8",
+              "publicationDate": null
+            }
+          },
+          "whistleblowerProtectionPolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Siemens has a policy for protecting whistleblowers. It can be found in the document \"sag-bcg-en.pdf\" on page 21.",
+            "dataSource": {
+              "page": "21",
+              "tagName": null,
+              "fileName": "sag-bcg-en.pdf",
+              "fileReference": "d876fd70047cf2a91dfd5bc274804c1b9b562e15f724bdc5f875619e4f1b90cb",
+              "publicationDate": null
+            }
+          },
+          "reportedIncidentsOfDiscrimination": null,
+          "sanctionedIncidentsOfDiscrimination": null,
+          "excessiveCeoPayRatio": {
+            "value": 48.94,
+            "quality": "Estimated",
+            "comment": "The ratio of the annual total compensation for the highest-paid person, Dr. Roland Busch, is €3,276,270 and the median annual total compensation for all employees in Germany is €67,000. The ratio is therefore 48.94. (Source: Siemens_Report_FY2023.pdf, page 185).",
+            "dataSource": {
+              "page": "185",
+              "tagName": null,
+              "fileName": "Siemens_Report_FY2023.pdf",
+              "fileReference": "a1bde2b6f7b0408c34ee7188cff4fe42feccd3a886eaf47c05827aa3452969b1",
+              "publicationDate": null
+            }
+          }
+        },
+        "greenSecurities": null,
+        "humanRights": {
+          "humanRightsPolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, the company has a publicly available statement of principles on human rights. This information can be found in the Siemens LkSG Policy Statement. The exact filename is \"SAG-LkSG-Policy-Statement.pdf\" and the relevant information is on page 11.",
+            "dataSource": {
+              "page": "11",
+              "tagName": null,
+              "fileName": "SAG-LkSG-Policy-Statement.pdf",
+              "fileReference": "3a3753ea17b20e051ae37023b89b9dc829eeb85989d53b00b152d914efa5dec8",
+              "publicationDate": null
+            }
+          },
+          "humanRightsDueDiligence": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Siemens has implemented due diligence processes to identify, prevent, mitigate, and address negative impacts on human rights. These processes include a risk-based analysis to identify potential risks in the supply chain, which already largely cover the prohibitions of the German Supply Chain Act (LkSG). In addition, regular dialogue is conducted with external human rights advisors to develop responsible risk mitigation pathways and training methods. The responsibility for upholding human rights is embedded in the company's processes and decision-making and is monitored by the Siemens Sustainability and Compliance departments.",
+            "dataSource": {
+              "page": "40",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "traffickingInHumanBeingsPolicy": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Yes, Siemens has a policy against human trafficking, which is embedded in the Siemens Code of Conduct for Suppliers and Third Parties. This policy includes, among other things, the prohibition of forced and child labor.",
+            "dataSource": {
+              "page": "5",
+              "tagName": null,
+              "fileName": "SAG-LkSG-Policy-Statement.pdf",
+              "fileReference": "3a3753ea17b20e051ae37023b89b9dc829eeb85989d53b00b152d914efa5dec8",
+              "publicationDate": null
+            }
+          },
+          "reportedChildLabourIncidents": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "reportedForcedOrCompulsoryLabourIncidents": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "numberOfReportedIncidentsOfHumanRightsViolations": null
+        },
+        "antiCorruptionAndAntiBribery": {
+          "casesOfInsufficientActionAgainstBriberyAndCorruption": null,
+          "reportedConvictionsOfBriberyAndCorruption": {
+            "value": 0,
+            "quality": "Reported",
+            "comment": "In the financial year 2023, a total of 416 compliance cases were reported that required investigation. The number of disciplinary measures imposed due to compliance violations was 166. \n\nSource: sustainability-report-fy2023.pdf, page 38.",
+            "dataSource": {
+              "page": "38",
+              "tagName": null,
+              "fileName": "sustainability-report-fy2023.pdf",
+              "fileReference": "871d8b265a576e8caf6ff4525ae26a87e939cb8c1b76451658ddb94c64e62fa5",
+              "publicationDate": null
+            }
+          },
+          "totalAmountOfReportedFinesOfBriberyAndCorruption": null
+        }
+      }
+    }
+  }
+]

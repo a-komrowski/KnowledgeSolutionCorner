@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Dataland GUI{% endblock %}</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="container">
+    <h1 class="mb">Dataland GUI Demo</h1>
+    <nav class="tabs">
+      <a href="/">Start</a>
+      <a href="/companies/">Firmensuche</a>
+      <a href="/sfdr/">SFDR</a>
+      <a href="/documents/">Dokumente</a>
+    </nav>
+  </header>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

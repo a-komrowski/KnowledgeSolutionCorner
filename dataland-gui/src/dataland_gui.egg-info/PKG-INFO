@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: dataland-gui
+Version: 0.1.0
+Summary: Ein konsolidiertes Dataland-Web-Frontend (eine GUI)
+Author-email: Team <team@example.com>
+Requires-Python: >=3.10
+Requires-Dist: Flask>=3.0
+Requires-Dist: requests>=2.31
+Requires-Dist: python-dotenv>=1.0

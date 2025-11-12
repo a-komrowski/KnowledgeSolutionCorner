@@ -1,12 +1,9 @@
+.venv/
 __pycache__/
 *.pyc
+.DS_Store
 .env
-.data/
-data/
-*.ipynb_checkpoints/
-dist/
-build/
-.dpytest/
-.env.example
+apikey.txt
+*.zip
 dataland-gui/.venv/
 dataland-gui/__pycache__/

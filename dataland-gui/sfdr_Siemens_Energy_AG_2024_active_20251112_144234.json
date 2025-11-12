@@ -1,0 +1,1014 @@
+[
+  {
+    "metaInfo": {
+      "dataId": "not available",
+      "companyId": "39260625-315b-4158-97aa-64b69eb331db",
+      "dataType": "sfdr",
+      "uploaderUserId": null,
+      "uploadTime": 1752162305669,
+      "reportingPeriod": "2024",
+      "currentlyActive": true,
+      "qaStatus": "Accepted",
+      "ref": null
+    },
+    "data": {
+      "general": {
+        "general": {
+          "dataDate": "2024-12-31",
+          "fiscalYearDeviation": "Deviation",
+          "fiscalYearEnd": "2024-09-30",
+          "referencedReports": {
+            "Sustainability_Report_2024": {
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "fileName": "Sustainability_Report_2024",
+              "publicationDate": "2024-12-12"
+            },
+            "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs": {
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "publicationDate": null
+            }
+          }
+        }
+      },
+      "environmental": {
+        "greenhouseGasEmissions": {
+          "scope1GhgEmissionsInTonnes": {
+            "value": 175000,
+            "quality": "Estimated",
+            "comment": "Extracted from the table on page 85, where Scope 1 emissions for 2024 are given as 175 (1,000 metric tons CO2e), converted to 175,000 metric tons.",
+            "dataSource": {
+              "page": "85",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope2GhgEmissionsInTonnes": {
+            "value": 22000,
+            "quality": "Estimated",
+            "comment": "Extracted from the table on page 85, where Scope 2 emissions for 2024 are given as 22 (1,000 metric tons CO2e), converted to 22,000 metric tons.",
+            "dataSource": {
+              "page": "85",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope2GhgEmissionsLocationBasedInTonnes": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "scope2GhgEmissionsMarketBasedInTonnes": {
+            "value": 22000,
+            "quality": "Estimated",
+            "comment": "The Scope 2 emissions - market-based for fiscal year 2024 are provided as 22 thousand metric tons CO2e, converted to  whole number by multiplying by 1,000",
+            "dataSource": {
+              "page": "33",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope1And2GhgEmissionsInTonnes": {
+            "value": 197000,
+            "quality": "Estimated",
+            "comment": "Field estimated with: , scope1GhgEmissionsInTonnes, scope2GhgEmissionsInTonnes",
+            "dataSource": {
+              "page": "85",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope1And2GhgEmissionsLocationBasedInTonnes": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "scope1And2GhgEmissionsMarketBasedInTonnes": {
+            "value": 197000,
+            "quality": "Estimated",
+            "comment": "Field estimated with: , scope1GhgEmissionsInTonnes, scope2GhgEmissionsMarketBasedInTonnes",
+            "dataSource": {
+              "page": "85",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope3GhgEmissionsInTonnes": {
+            "value": 1342880000,
+            "quality": "Estimated",
+            "comment": "The total Scope 3 emissions calculated as the sum from the downstream emissions (1,333,642 thousand tonnes on page 31) and upstream emissions (9,238 thousands tonnes on page 34) for fiscal year 2024 (1,333,642,000 + 9,238,000 = 1,342,880,000)",
+            "dataSource": {
+              "page": "34",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope3UpstreamGhgEmissionsInTonnes": {
+            "value": 9238000,
+            "quality": "Estimated",
+            "comment": "Field estimated with: , scope3PurchasedGoodsAndServicesGhgEmissionsInTonnes, scope3UpstreamTransportGhgEmissionsInTonnes",
+            "dataSource": {
+              "page": "34",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope3DownstreamGhgEmissionsInTonnes": {
+            "value": 1333642000,
+            "quality": "Estimated",
+            "comment": "Field estimated with: , scope3UseSoldProductsGhgEmissionsInTonnes",
+            "dataSource": {
+              "page": "31",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope1And2And3GhgEmissionsInTonnes": {
+            "value": 1343077000,
+            "quality": "Estimated",
+            "comment": "Field estimated with: , scope1GhgEmissionsInTonnes, scope2GhgEmissionsInTonnes, scope3GhgEmissionsInTonnes",
+            "dataSource": {
+              "page": "85",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope1And2And3GhgEmissionsLocationBasedInTonnes": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "scope1And2And3GhgEmissionsMarketBasedInTonnes": {
+            "value": 1343077000,
+            "quality": "Estimated",
+            "comment": "Field estimated with: , scope1GhgEmissionsInTonnes, scope2GhgEmissionsMarketBasedInTonnes, scope3GhgEmissionsInTonnes",
+            "dataSource": {
+              "page": "85",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "scope4GhgEmissionsInTonnes": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "enterpriseValueInEUR": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "totalRevenueInEUR": {
+            "value": 34465000000,
+            "quality": "Estimated",
+            "comment": "The total revenue for Siemens Energy in fiscal year 2024 is provided as €34,465 million. This value is converted to a whole number by multiplying by 1,000,000.",
+            "dataSource": {
+              "page": "18",
+              "tagName": "",
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "publicationDate": "2024-12-05"
+            }
+          },
+          "carbonFootprintInTonnesPerMillionEUREnterpriseValue": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "ghgIntensityInTonnesPerMillionEURRevenue": {
+            "value": 38969.302191,
+            "quality": "Estimated",
+            "comment": "Field estimated with: environmental.greenhouseGasEmissions.scope1And2And3GhgEmissionsInTonnes and environmental.greenhouseGasEmissions.totalRevenue",
+            "dataSource": {
+              "page": "85",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "ghgIntensityScope1InTonnesPerMillionEURRevenue": {
+            "value": 5.077615,
+            "quality": "Estimated",
+            "comment": "Field estimated with: environmental.greenhouseGasEmissions.scope1GhgEmissionsInTonnes and environmental.greenhouseGasEmissions.totalRevenue",
+            "dataSource": {
+              "page": "85",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "ghgIntensityScope2InTonnesPerMillionEURRevenue": {
+            "value": 0.638329,
+            "quality": "Estimated",
+            "comment": "Field estimated with: environmental.greenhouseGasEmissions.scope2GhgEmissionsInTonnes and environmental.greenhouseGasEmissions.totalRevenue",
+            "dataSource": {
+              "page": "85",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "ghgIntensityScope3InTonnesPerMillionEURRevenue": {
+            "value": 38963.586247,
+            "quality": "Estimated",
+            "comment": "Field estimated with: environmental.greenhouseGasEmissions.scope3GhgEmissionsInTonnes and environmental.greenhouseGasEmissions.totalRevenue",
+            "dataSource": {
+              "page": "34",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "ghgIntensityScope4InTonnesPerMillionEURRevenue": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "fossilFuelSectorExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "financedScope1AndScope2Emissions": null,
+          "financedScope3Emissions": null
+        },
+        "energyPerformance": {
+          "renewableEnergyProductionInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "renewableEnergyConsumptionInGWh": {
+            "value": 807.54722222222,
+            "quality": "Estimated",
+            "comment": "Calculated the total renewable energy consumption as 49% of the total energy consumption (5,933 thousand GJ tonnes), calculating  (5,933,000 * .49 = 2,907,170 GJ). Converting GJ to GWH using 1GWH = 3600 GJ which lead to 807.54722222",
+            "dataSource": {
+              "page": "33",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "nonRenewableEnergyProductionInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "relativeNonRenewableEnergyProductionInPercent": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "nonRenewableEnergyConsumptionInGWh": {
+            "value": 840.5083333,
+            "quality": "Estimated",
+            "comment": "Calculated the total non-renewable energy consumption as 51% of the total energy consumption (5,933 thousand GJ tonnes), calculating  (5,933,000 * .51 = 3,025,830 GJ). Converting GJ to GWH using 1GWH = 3600 GJ which lead to 840.5083333",
+            "dataSource": {
+              "page": "33",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "relativeNonRenewableEnergyConsumptionInPercent": {
+            "value": 51,
+            "quality": "Estimated",
+            "comment": null,
+            "dataSource": {
+              "page": "33",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "applicableHighImpactClimateSectors": null,
+          "totalHighImpactClimateSectorEnergyConsumptionInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "nonRenewableEnergyConsumptionFossilFuelsInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "nonRenewableEnergyConsumptionCrudeOilInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "nonRenewableEnergyConsumptionNaturalGasInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "nonRenewableEnergyConsumptionLigniteInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "nonRenewableEnergyConsumptionCoalInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "nonRenewableEnergyConsumptionNuclearEnergyInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "nonRenewableEnergyConsumptionOtherInGWh": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          }
+        },
+        "biodiversity": {
+          "primaryForestAndWoodedLandOfNativeSpeciesExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "protectedAreasExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "rareOrEndangeredEcosystemsExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "highlyBiodiverseGrasslandExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "manufactureOfAgrochemicalPesticidesProducts": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "landDegradationDesertificationSoilSealingExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "sustainableAgriculturePolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "sustainableOceansAndSeasPolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "threatenedSpeciesExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "biodiversityProtectionPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The text mentions that the conservation of biodiversity is integrated into Siemens Energy's environmental management systems and instructions for manufacturing locations and project sites, indicating the existence of a biodiversity protection policy.",
+            "dataSource": {
+              "page": "47",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "deforestationPolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          }
+        },
+        "water": {
+          "emissionsToWaterInTonnes": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "waterConsumptionInCubicMeters": {
+            "value": 2570000,
+            "quality": "Estimated",
+            "comment": "The total water consumption for fiscal year 2024 is given as 2.57 million cubic meters, converted to whole number by multiplying by 1,000,000",
+            "dataSource": {
+              "page": "46",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "waterReusedInCubicMeters": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "relativeWaterUsageInCubicMetersPerMillionEURRevenue": {
+            "value": 74.568403,
+            "quality": "Estimated",
+            "comment": "Field estimated with: environmental.water.waterConsumptionInCubicMeters and environmental.greenhouseGasEmissions.totalRevenue",
+            "dataSource": {
+              "page": "46",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "waterManagementPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The document mentions that Siemens Energy aims to carefully manage water use and has strategies for water management, indicating the presence of a water management policy.",
+            "dataSource": {
+              "page": "46",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "highWaterStressAreaExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          }
+        },
+        "waste": {
+          "hazardousAndRadioactiveWasteInTonnes": {
+            "value": 17000,
+            "quality": "Estimated",
+            "comment": "The hazardous waste for fiscal year 2024 is explicitly mentioned as 17 thousand metric tons, which is equivalent to 17,000 tonnes.",
+            "dataSource": {
+              "page": "45",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "nonRecycledWasteInTonnes": {
+            "value": 27000,
+            "quality": "Reported",
+            "comment": "The relevant document provides the waste data for Siemens Energy AG in 2024, indicating that the 'Waste for disposal' is 27000 metric tons, which represents the non-recycled waste.",
+            "dataSource": {
+              "page": "45",
+              "tagName": null,
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": null
+            }
+          }
+        },
+        "emissions": {
+          "emissionsOfInorganicPollutantsInTonnes": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "emissionsOfAirPollutantsInTonnes": {
+            "value": 69,
+            "quality": "Reported",
+            "comment": "Extracted the value for nitrogen oxides (NOx) emissions for fiscal year 2024 from the table under 'Atmospheric pollutant emissions'. The value is given directly in metric tons.",
+            "dataSource": {
+              "page": "34",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "emissionsOfOzoneDepletionSubstancesInTonnes": {
+            "value": 4.3e-06,
+            "quality": "Reported",
+            "comment": "The value of ozone-depleting substances (ODS) emissions for fiscal year 2024 is provided directly in the document as 0.0000043 metric tons in R11 equivalent.",
+            "dataSource": {
+              "page": "34",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "carbonReductionInitiatives": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Siemens Energy has a comprehensive set of carbon reduction initiatives, including targets for reducing Scope 1, 2, and 3 emissions, transitioning to renewable energy, and developing low-emission technologies.",
+            "dataSource": {
+              "page": "50",
+              "tagName": "",
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "publicationDate": "2024-12-05"
+            }
+          }
+        }
+      },
+      "social": {
+        "socialAndEmployeeMatters": {
+          "humanRightsLegalProceedings": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "iloCoreLabourStandards": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The company adheres to the ILO core labour standards as it explicitly mentions commitment to the ILO Declaration on Fundamental Principles and Rights at Work, covering key areas such as elimination of child labor, abolition of forced labor, prohibition of discrimination, freedom of association, and the right to collective bargaining.",
+            "dataSource": {
+              "page": "56",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "environmentalPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The document mentions the Zero Harm Framework and the Integrated Management System (IMS) which are based on international standards like ISO 14001, indicating the presence of an environmental policy. However, the specific content of the policy is not detailed.",
+            "dataSource": {
+              "page": "44",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "corruptionLegalProceedings": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "transparencyDisclosurePolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The report mentions that Siemens Energy discloses how it addresses risks and opportunities arising from climate change, consistent with TCFD recommendations, indicating a transparency disclosure policy.",
+            "dataSource": {
+              "page": "75",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "humanRightsDueDiligencePolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The document mentions a dedicated team conducting human rights due diligence on customer projects, which is mandatory for projects meeting defined risk criteria. This indicates the existence of a human rights due diligence policy, although the specific policy content is not detailed.",
+            "dataSource": {
+              "page": "57",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "policyAgainstChildLabour": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The Code of Conduct for Suppliers explicitly prohibits child labor, indicating a policy against it.",
+            "dataSource": {
+              "page": "53",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "policyAgainstForcedLabour": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The document mentions a Code of Conduct for Suppliers that includes the prohibition of forced labor, indicating a policy against forced labor.",
+            "dataSource": {
+              "page": "53",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "policyAgainstDiscriminationInTheWorkplace": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The Code of Conduct for Suppliers includes a non-discrimination policy as part of its human rights section, indicating a policy against workplace discrimination.",
+            "dataSource": {
+              "page": "53",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "iso14001Certificate": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The company follows the ISO 14001 environmental management standard and aims to implement a certifiable management system based on it. 59 standalone management systems have been intergrated during fiscal year 2024. 56 standalone systems are remaining.",
+            "dataSource": {
+              "page": "39",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "policyAgainstBriberyAndCorruption": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "Siemens Energy has a compliance approach that includes anti-corruption measures as part of its Business Conduct Guidelines (BCGs). The company emphasizes the importance of eradicating bribery and corruption to support fair competition and innovation.",
+            "dataSource": {
+              "page": "56",
+              "tagName": "",
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "publicationDate": "2024-12-05"
+            }
+          },
+          "fairBusinessMarketingAdvertisingPolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "technologiesExpertiseTransferPolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "fairCompetitionPolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "violationOfTaxRulesAndRegulation": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "unGlobalCompactPrinciplesCompliancePolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The company's Code of Conduct is based on the Ten Principles of the United Nations Global Compact and is mandatory for all business partners, indicating compliance with the UNGC principles.",
+            "dataSource": {
+              "page": "60",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "oecdGuidelinesForMultinationalEnterprisesGrievanceHandling": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The company has grievance mechanisms in place, such as the 'Speak Up' reporting system and ombudsperson, which align with OECD guidelines for grievance handling. However, the specific policy content is not explicitly detailed in the text.",
+            "dataSource": {
+              "page": "57",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "averageGrossHourlyEarningsMaleEmployees": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null,
+            "currency": null
+          },
+          "averageGrossHourlyEarningsFemaleEmployees": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null,
+            "currency": null
+          },
+          "unadjustedGenderPayGapInPercent": {
+            "value": 3.42,
+            "quality": "Reported",
+            "comment": "The unadjusted gender pay gap for fiscal year 2024 is explicitly provided as 3.42% in the table.",
+            "dataSource": {
+              "page": "64",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "femaleBoardMembersSupervisoryBoard": {
+            "value": 9,
+            "quality": "Reported",
+            "comment": "The relevant document states that as of September 30, 2024, the Supervisory Board comprised nine women, six of which among the shareholder representatives and three among the employee representatives. Therefore, the number of female board members on the Supervisory Board for Siemens Energy AG in 2024 is 9.",
+            "dataSource": {
+              "page": "170",
+              "tagName": null,
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "publicationDate": null
+            }
+          },
+          "femaleBoardMembersBoardOfDirectors": {
+            "value": 2,
+            "quality": "Reported",
+            "comment": "The document states that at the end of fiscal year 2024, the Executive Board comprised two women and four men, meeting the target of 25% set by the Supervisory Board.",
+            "dataSource": {
+              "page": "168",
+              "tagName": "",
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "publicationDate": "2024-12-05"
+            }
+          },
+          "maleBoardMembersSupervisoryBoard": {
+            "value": 11,
+            "quality": "Reported",
+            "comment": "The Supervisory Board comprised nine women, resulting in a share of 45% female members. Therefore, the number of male members is 55% of the total board. With 20 members in total, 11 are male.",
+            "dataSource": {
+              "page": "170",
+              "tagName": null,
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "publicationDate": null
+            }
+          },
+          "maleBoardMembersBoardOfDirectors": {
+            "value": 4,
+            "quality": "Reported",
+            "comment": "The Executive Board comprised two women and four men at the end of fiscal year 2024, indicating the number of male board members.",
+            "dataSource": {
+              "page": "168",
+              "tagName": "",
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "publicationDate": "2024-12-05"
+            }
+          },
+          "boardGenderDiversitySupervisoryBoardInPercent": {
+            "value": 45,
+            "quality": "Reported",
+            "comment": "The relevant document states that the Supervisory Board comprised nine women, resulting in a share of 45% female members.",
+            "dataSource": {
+              "page": "165-169",
+              "tagName": null,
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "publicationDate": null
+            }
+          },
+          "boardGenderDiversityBoardOfDirectorsInPercent": {
+            "value": 33.33,
+            "quality": "Estimated",
+            "comment": "Field estimated with: social.socialAndEmployeeMatters.femaleBoardMembersBoardOfDirectors and social.socialAndEmployeeMatters.maleBoardMembersBoardOfDirectors",
+            "dataSource": {
+              "page": "168",
+              "tagName": "",
+              "fileName": "Annual_Report_For_The_Siemens_Energy_Group_As_Of_September_30,_2024_Ifrs",
+              "fileReference": "b4802b2310ed9b29276eeed55b99a354700feee6c47bde5d124df322f37fc4a1",
+              "publicationDate": "2024-12-05"
+            }
+          },
+          "controversialWeaponsExposure": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "workplaceAccidentPreventionPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The document mentions a strong focus on occupational health and safety, including prevention, communication, and a Zero Harm culture. It references an EHS Policy and a Zero Harm Framework, which aim to prevent workplace accidents. However, the specific content of a workplace accident prevention policy is not detailed.",
+            "dataSource": {
+              "page": "38",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "rateOfAccidents": {
+            "value": 0.47,
+            "quality": "Reported",
+            "comment": "The Total Recordable Injury Rate (TRIR) on a million hours worked basis for employees and contractors in fiscal year 2024 is provided directly as 2.35.",
+            "dataSource": {
+              "page": "40",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "workdaysLostInDays": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "supplierCodeOfConduct": {
+            "value": "Yes",
+            "quality": "Reported",
+            "comment": "Siemens Energy has a binding Code of Conduct for Suppliers and Third-Party Intermediaries, which is based on the Business Conduct Guidelines and Principles of the UN Global Compact. It includes specific environmental, compliance, and labor standards, covering topics such as human rights, environmental protection, and fair operating practices.",
+            "dataSource": {
+              "page": "53",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "grievanceHandlingMechanism": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The company has grievance mechanisms, including the 'Speak Up' reporting system and ombudsperson, for reporting human rights violations.",
+            "dataSource": {
+              "page": "57",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "whistleblowerProtectionPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The document mentions various confidential channels for reporting potential violations, including a 'Speak Up' whistleblower channel and Integrity Hotline, and states that retaliation against whistleblowers is not tolerated. However, the specific content of the whistleblower protection policy is not detailed.",
+            "dataSource": {
+              "page": "60",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "reportedIncidentsOfDiscrimination": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "sanctionedIncidentsOfDiscrimination": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "excessiveCeoPayRatio": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          }
+        },
+        "greenSecurities": {
+          "securitiesNotCertifiedAsGreen": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          }
+        },
+        "humanRights": {
+          "humanRightsPolicy": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The document mentions human rights are anchored in Business Conduct Guidelines, Respect for Human Rights and Environmental Protection Policy Statement, and Code of Conduct, indicating the existence of a human rights policy.",
+            "dataSource": {
+              "page": "56",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "humanRightsDueDiligence": {
+            "value": "Yes",
+            "quality": "Incomplete",
+            "comment": "The document mentions that Siemens Energy conducts human rights due diligence on customer projects, which is mandatory in the sales phase for projects meeting defined risk criteria. This process conforms to the UNGPs and involves external ESG databases. However, the specific policy content is not explicitly detailed in the text.",
+            "dataSource": {
+              "page": "57",
+              "tagName": "",
+              "fileName": "Sustainability_Report_2024",
+              "fileReference": "b9e66f5ee0ce2503387aa2e75cc2032089cbb6c7439ae27d453ef7c40ba1dab3",
+              "publicationDate": "2024-12-12"
+            }
+          },
+          "traffickingInHumanBeingsPolicy": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "reportedChildLabourIncidents": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "reportedForcedOrCompulsoryLabourIncidents": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "numberOfReportedIncidentsOfHumanRightsViolations": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          }
+        },
+        "antiCorruptionAndAntiBribery": {
+          "casesOfInsufficientActionAgainstBriberyAndCorruption": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "reportedConvictionsOfBriberyAndCorruption": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null
+          },
+          "totalAmountOfReportedFinesOfBriberyAndCorruption": {
+            "value": null,
+            "quality": "NoDataFound",
+            "comment": null,
+            "dataSource": null,
+            "currency": null
+          }
+        }
+      }
+    }
+  }
+]

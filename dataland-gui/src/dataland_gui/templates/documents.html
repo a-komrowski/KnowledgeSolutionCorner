@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Dokumente – Dataland GUI{% endblock %}
+{% block content %}
+<form method="post" action="/documents/list" class="card">
+    <div class="grid">
+    <div>
+      <label for="name">Firmenname</label>
+      <input type="text" id="name" name="name" placeholder="z. B. Siemens AG" required value="{{ name|default('') }}">
+    </div>
+    <div>
+      <label for="period">Reporting Period (optional)</label>
+      <input class="input-year" type="number" id="period" name="period" placeholder="2023" value="{{ period|default('') }}">
+    </div>
+  </div>
+  <label for="company_id">Treffer auswählen</label>
+  <select id="company_id" name="company_id">
+    <option value="" selected>—</option>
+    {% if candidates %}
+      {% for c in candidates %}
+      <option value="{{ c.company_id }}" {% if selected_id and selected_id==c.company_id %}selected{% endif %}>{{ c.company_name }} — {{ c.company_id }}</option>
+      {% endfor %}
+    {% endif %}
+  </select>
+  <script>
+(function() {
+  const nameInput = document.getElementById('name');
+  const selectEl = document.getElementById('company_id');
+
+  let t = null;
+  function populateOptions(items) {
+    while (selectEl.firstChild) selectEl.removeChild(selectEl.firstChild);
+    const ph = document.createElement('option');
+    ph.value = "";
+    ph.textContent = items.length ? "Bitte wählen …" : "—";
+    ph.selected = true;
+    ph.disabled = items.length > 0;
+    selectEl.appendChild(ph);
+    for (const it of items) {
+      const opt = document.createElement('option');
+      opt.value = it.companyId;
+      opt.textContent = `${it.companyName} — ${it.companyId}`;
+      selectEl.appendChild(opt);
+    }
+  }
+
+  async function searchNow(q) {
+    if (!q || q.trim().length < 2) { populateOptions([]); return; }
+    try {
+      const resp = await fetch(`/companies/api/search?name=${encodeURIComponent(q)}&limit=100`);
+      const data = await resp.json();
+      if (Array.isArray(data)) populateOptions(data);
+      else populateOptions([]);
+    } catch (_) {
+      populateOptions([]);
+    }
+  }
+
+  function debounced() {
+    clearTimeout(t);
+    t = setTimeout(() => searchNow(nameInput.value), 300);
+  }
+
+  nameInput.addEventListener('input', debounced);
+  debounced();
+})();
+</script>
+
+  <div class="actions mb-1">
+    <div class="spacer"></div>
+    <button type="submit">Dokumente laden</button>
+  </div>
+
+</form>
+{% if error %}<div class="err">{{ error }}</div>{% endif %}
+{% if info %}<div class="muted">{{ info }}</div>{% endif %}
+{% if message %}<div class="ok">{{ message }}</div>{% endif %}
+{% if docs %}
+  <div class="card">
+    <table>
+      <thead><tr><th>Dateiname</th><th>Kategorie</th><th>Periode</th><th>Aktionen</th></tr></thead>
+      <tbody>
+      {% for d in docs %}
+        <tr>
+          <td><strong>{{ d.document_name }}</strong><br><code>{{ d.document_id }}</code></td>
+          <td>{{ d.document_category or '—' }}</td>
+          <td>{{ d.reporting_period or '—' }}</td>
+          <td style="white-space:nowrap;">
+            <a class="btn" href="/documents/proxy-download/{{ d.document_id }}?filename={{ d.document_name|urlencode }}">Download</a>
+            <a class="btn" style="background:#334155" target="_blank" href="/documents/view/{{ d.document_id }}?filename={{ d.document_name|urlencode }}">Ansehen</a>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endif %}
+{% endblock %}

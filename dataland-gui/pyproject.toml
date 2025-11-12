@@ -1,0 +1,18 @@
+[project]
+name = "dataland-gui"
+version = "0.1.0"
+description = "Ein konsolidiertes Dataland-Web-Frontend (eine GUI)"
+authors = [{name = "Team", email = "team@example.com"}]
+requires-python = ">=3.10"
+dependencies = [
+  "Flask>=3.0",
+  "requests>=2.31",
+  "python-dotenv>=1.0",
+]
+
+[project.scripts]
+dataland-gui = "dataland_gui.webapp:main"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}SFDR – Dataland GUI{% endblock %}
+{% block content %}
+<form method="post" action="/sfdr/fetch" class="card">
+  <div class="grid">
+    <div>
+      <label for="name">Firmenname</label>
+      <input type="text" id="name" name="name" placeholder="z. B. Siemens AG" required value="{{ name|default('') }}">
+    </div>
+    <div>
+      <label for="period">Reporting Period (Jahr)</label>
+      <input class="input-year" type="number" id="period" name="period" placeholder="2023" value="{{ period|default('') }}">
+    </div>
+  </div>
+  <label class="inline">Nur aktive Daten
+     <input type="checkbox" id="active" name="active" {% if active %}checked{% endif %}>
+  </label>
+  <label for="company_id">Treffer auswählen</label>
+  <select id="company_id" name="company_id">
+    <option value="" selected>—</option>
+    {% if candidates %}
+      {% for c in candidates %}
+      <option value="{{ c.company_id }}" {% if selected_id and selected_id==c.company_id %}selected{% endif %}>{{ c.company_name }} — {{ c.company_id }}</option>
+      {% endfor %}
+    {% endif %}
+  </select>
+  <script>
+(function() {
+  const nameInput = document.getElementById('name');
+  const selectEl = document.getElementById('company_id');
+
+  let t = null;
+  function populateOptions(items) {
+    // Leeren + Platzhalter setzen
+    while (selectEl.firstChild) selectEl.removeChild(selectEl.firstChild);
+    const ph = document.createElement('option');
+    ph.value = "";
+    ph.textContent = items.length ? "Bitte wählen …" : "—";
+    ph.selected = true;
+    ph.disabled = items.length > 0;
+    selectEl.appendChild(ph);
+
+    // Ergebnisse hinzufügen
+    for (const it of items) {
+      const opt = document.createElement('option');
+      opt.value = it.companyId;
+      opt.textContent = `${it.companyName} — ${it.companyId}`;
+      selectEl.appendChild(opt);
+    }
+  }
+
+  async function searchNow(q) {
+    if (!q || q.trim().length < 2) { populateOptions([]); return; }
+    try {
+      const resp = await fetch(`/companies/api/search?name=${encodeURIComponent(q)}&limit=100`);
+      const data = await resp.json();
+      if (Array.isArray(data)) populateOptions(data);
+      else populateOptions([]);
+    } catch (_) {
+      populateOptions([]);
+    }
+  }
+
+  function debounced() {
+    clearTimeout(t);
+    t = setTimeout(() => searchNow(nameInput.value), 300);
+  }
+
+  nameInput.addEventListener('input', debounced);
+  // Initialversuch (falls Server bereits Kandidaten gefüllt hat):
+  debounced();
+})();
+</script>
+
+  <div class="actions mb-1">
+    <div class="spacer"></div>
+    <button type="submit">SFDR laden & speichern</button>
+  </div>
+
+</form>
+{% if status %}
+  <div class="{{ 'ok' if status=='ok' else 'err' }}">{{ message }}</div>
+  {% if filename %}
+    <p>Gespeichert als: <a href="/sfdr/download/{{ filename }}">{{ filename }}</a></p>
+    {% if preview %}
+    <details><summary>Vorschau</summary>
+      <pre style="white-space:pre-wrap">{{ preview }}</pre>
+    </details>
+    {% endif %}
+  {% endif %}
+{% endif %}
+{% endblock %}

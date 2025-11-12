@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Firmensuche – Dataland GUI{% endblock %}
+{% block content %}
+<form method="post" action="/companies/search" class="card">
+  <label for="name">Firmenname</label>
+  <input type="text" id="name" name="name" placeholder="z. B. Siemens AG" required value="{{ name|default('') }}">
+  <div class="spacer"></div>
+  <button type="submit">Suchen</button>
+</form>
+{% if error %}<div class="err">{{ error }}</div>{% endif %}
+{% if info %}<div class="muted">{{ info }}</div>{% endif %}
+{% if candidates %}
+  <div class="card">
+    <h3>Gefundene Treffer ({{ candidates|length }})</h3>
+    <table>
+      <thead><tr><th>Name</th><th>Company ID</th></tr></thead>
+      <tbody>
+        {% for c in candidates %}
+        <tr><td>{{ c.company_name }}</td><td><code>{{ c.company_id }}</code></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endif %}
+{% endblock %}
