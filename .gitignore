@@ -11,3 +11,4 @@ build/
 dataland-gui/.venv/
 dataland-gui/__pycache__/
 .venv
+apikey.txt
