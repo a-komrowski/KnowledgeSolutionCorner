@@ -1,0 +1,318 @@
+[
+  {
+    "dax_name": "Adidas AG",
+    "num_ids": 1,
+    "company_ids": [
+      "b74fe176-8886-4127-aa88-a45a32c386ac"
+    ]
+  },
+  {
+    "dax_name": "Airbus SE",
+    "num_ids": 2,
+    "company_ids": [
+      "e716b566-c308-45c6-88be-b4d317a4fe93",
+      "29243f6f-50ab-4d78-bc3a-c810e913599f"
+    ]
+  },
+  {
+    "dax_name": "Allianz SE",
+    "num_ids": 29,
+    "company_ids": [
+      "4fdfb860-855e-4a08-81a0-129bd172dc1e",
+      "8ab211df-38e7-4263-9aa4-967f81c867a7",
+      "5243c4a8-bd2a-4a52-9001-f9316c208cb9",
+      "8de38778-fe02-43d4-8ec1-773d78fb1318",
+      "8dd23baa-3f25-40bd-b245-9653656daf56",
+      "794f9bae-28cc-4d1b-8010-e46004621663",
+      "5cd4ba46-d895-4028-b236-3bf6700d6a36",
+      "76f730bd-0a86-43eb-8a04-3e4668341c76",
+      "1914d0c6-2c88-490f-b140-1403bcfb9bc4",
+      "66d7335d-c03b-43be-a237-dcf9b3f10768",
+      "b2872f82-beb5-4030-ad70-53bb3d22257e",
+      "a8731ee3-8263-49e7-9032-82f18e9637eb",
+      "34cf901c-e757-483b-9727-c187e0320046",
+      "9d2bfc8c-249f-4cbb-8d1c-7191a69a384e",
+      "02b26da6-e3e5-4acf-9481-a4c7a017aea2",
+      "01a2fd10-ecb6-40d0-aa4d-11ce8560a964",
+      "c8bc2865-3d62-4970-b803-06ebf1e9eba9",
+      "5117256d-6f7a-4a68-ac7a-fabce375524b",
+      "89e576c1-a3b7-472f-ba17-b1e79f92e11d",
+      "4fcd89b9-bda2-469c-ab65-044ea086a81e",
+      "67113a61-4824-4632-8cf2-34e51bfba8e5",
+      "2852acb0-9e5f-4e4f-8c4d-b7ab8cd00ddc",
+      "4f68a8f6-fe55-4b7d-82e0-79eba16cf86f",
+      "be781584-2a69-498a-8270-3467f21a9bf7",
+      "c326db3d-b8d7-435b-83c3-77cb7d8936ed",
+      "70208d6e-237b-40bf-bc9a-ff725800f16e",
+      "ac7d2c63-fccc-404d-be74-f9c7663f82dc",
+      "c2d2a777-e4dc-4e20-b987-1b6b2b444492",
+      "c3942298-8a11-4733-831e-7c1f73cb40b0"
+    ]
+  },
+  {
+    "dax_name": "BASF SE",
+    "num_ids": 3,
+    "company_ids": [
+      "10075779-5ce0-4e38-961f-4b350d3be287",
+      "78e08745-33b8-4217-9382-287b2c477c0f",
+      "6f444396-2e71-40c1-8101-780ef1ba0c4e"
+    ]
+  },
+  {
+    "dax_name": "Bayer AG",
+    "num_ids": 4,
+    "company_ids": [
+      "48dc8d2d-96c7-48a6-a2a8-9638f2b38ca6",
+      "bc7e75c6-0bce-4878-9e0c-1382b10e1644",
+      "92b4241e-60f5-4eaf-b1d7-35e90797c365",
+      "62dad5a4-0bdc-46a5-947d-ed82ff98a2c7"
+    ]
+  },
+  {
+    "dax_name": "Beiersdorf AG",
+    "num_ids": 1,
+    "company_ids": [
+      "c39b9a7a-36c8-47f6-925f-6dad7ef69835"
+    ]
+  },
+  {
+    "dax_name": "Bayerische Motoren Werke AG (BMW AG)",
+    "num_ids": 0,
+    "company_ids": []
+  },
+  {
+    "dax_name": "Brenntag SE",
+    "num_ids": 1,
+    "company_ids": [
+      "d8e7e3af-50d2-4aa0-93d0-6e94a73e67d6"
+    ]
+  },
+  {
+    "dax_name": "Commerzbank AG",
+    "num_ids": 2,
+    "company_ids": [
+      "2256469e-1386-4783-8b66-bfe849615236",
+      "8302b6d2-fd44-45af-8d41-1f9d479259d3"
+    ]
+  },
+  {
+    "dax_name": "Continental AG",
+    "num_ids": 5,
+    "company_ids": [
+      "5c01af7c-6de0-48ce-9adc-070cb3c4075b",
+      "2c2546a8-7736-4d33-8cdb-bc637f5a1b7e",
+      "336e5fd2-b538-4375-85a9-34351a19babc",
+      "c041343e-a892-4950-be81-d5695fcc5ef6",
+      "f3f9f2bb-e954-44d7-b5a5-fa060548e132"
+    ]
+  },
+  {
+    "dax_name": "Daimler Truck Holding AG",
+    "num_ids": 1,
+    "company_ids": [
+      "9081abb0-094f-41fa-b6ee-b7a47e3fe390"
+    ]
+  },
+  {
+    "dax_name": "Deutsche Bank AG",
+    "num_ids": 5,
+    "company_ids": [
+      "5b652bd7-5660-4fdd-a558-237587fc18a4",
+      "5323cf58-6311-4b1f-b825-c78514965984",
+      "f302a16c-bccc-4077-843a-6eaae295a987",
+      "3f18c576-a591-4521-8f6e-9b7e2890e892",
+      "98cd35fc-5057-4a52-a835-e07a0402bef5"
+    ]
+  },
+  {
+    "dax_name": "Deutsche Börse AG",
+    "num_ids": 1,
+    "company_ids": [
+      "4db3fb50-0540-432f-ad0f-f41848608a8d"
+    ]
+  },
+  {
+    "dax_name": "Deutsche Post AG",
+    "num_ids": 1,
+    "company_ids": [
+      "04dce05d-09d5-4d2b-98f7-4e64ad9a3e39"
+    ]
+  },
+  {
+    "dax_name": "Deutsche Telekom AG",
+    "num_ids": 1,
+    "company_ids": [
+      "2e807990-9056-4db4-9d95-2e6b2f39f88f"
+    ]
+  },
+  {
+    "dax_name": "E.ON SE",
+    "num_ids": 2,
+    "company_ids": [
+      "17ddbb60-1348-47e1-9c56-6dc6c5fdf4c9",
+      "d4783b26-acff-4905-8d22-275a3df9920d"
+    ]
+  },
+  {
+    "dax_name": "Fresenius Medical Care AG & Co. KGaA",
+    "num_ids": 1,
+    "company_ids": [
+      "b8e4cd35-5732-4704-bf09-d8e8256412a3"
+    ]
+  },
+  {
+    "dax_name": "Fresenius SE & Co. KGaA",
+    "num_ids": 1,
+    "company_ids": [
+      "e7a6f3cb-118f-4939-b39a-48e48047d028"
+    ]
+  },
+  {
+    "dax_name": "Münchener Rückversicherungs-Gesellschaft AG in München",
+    "num_ids": 0,
+    "company_ids": []
+  },
+  {
+    "dax_name": "Heidelberg Materials AG",
+    "num_ids": 2,
+    "company_ids": [
+      "6fe8a4a4-ba7d-4883-95e6-0b9d69ee758f",
+      "a91162e9-3558-499a-8763-ddbc7eb230da"
+    ]
+  },
+  {
+    "dax_name": "Henkel AG & Co. KGaA",
+    "num_ids": 1,
+    "company_ids": [
+      "380b3111-bf97-4bae-9bf9-3e9bed9f35f1"
+    ]
+  },
+  {
+    "dax_name": "Infineon Technologies AG",
+    "num_ids": 1,
+    "company_ids": [
+      "67450485-5e35-4403-a740-c7f9984859ed"
+    ]
+  },
+  {
+    "dax_name": "Mercedes-Benz Group AG",
+    "num_ids": 1,
+    "company_ids": [
+      "ca4db94b-8b41-4899-9e44-bb4ee1c66318"
+    ]
+  },
+  {
+    "dax_name": "Merck KGaA",
+    "num_ids": 1,
+    "company_ids": [
+      "968892e9-9670-4292-a4bc-a86df0855333"
+    ]
+  },
+  {
+    "dax_name": "MTU Aero Engines AG",
+    "num_ids": 1,
+    "company_ids": [
+      "144d3018-7c10-4500-ab49-80e6e2a28060"
+    ]
+  },
+  {
+    "dax_name": "Porsche Automobil Holding SE",
+    "num_ids": 1,
+    "company_ids": [
+      "b3070cf5-4618-4a42-9979-8f34c041f5ac"
+    ]
+  },
+  {
+    "dax_name": "QIAGEN N.V.",
+    "num_ids": 1,
+    "company_ids": [
+      "be2762d6-232d-4239-95ae-88ce6096c884"
+    ]
+  },
+  {
+    "dax_name": "Rheinmetall AG",
+    "num_ids": 1,
+    "company_ids": [
+      "5695dc34-3ed8-4aaf-8475-25b7f4c7ae4d"
+    ]
+  },
+  {
+    "dax_name": "RWE AG",
+    "num_ids": 0,
+    "company_ids": []
+  },
+  {
+    "dax_name": "SAP SE",
+    "num_ids": 12,
+    "company_ids": [
+      "30004cba-dfe1-4aeb-a67b-2cc4001d0b02",
+      "54f46b89-82f8-44b2-a003-d4b716ebaa44",
+      "fd1746b5-2856-4359-9a1b-a930a1b6767a",
+      "3c6792ff-6481-4040-87b5-fa6093485ee7",
+      "7a57e0dd-8458-4ad2-be7f-e3e4fbf2673a",
+      "8e49587b-43ca-4dac-80f7-9c37fa22664b",
+      "26daf055-d10e-4a1a-a8c9-17b56346417c",
+      "0534bc86-facc-4bf1-a1e6-f5beae296c20",
+      "48cfb72e-9349-4634-b551-b87464e2e4d7",
+      "c268dafe-4617-412d-93fb-e17f5ee4cf71",
+      "fcea9cb7-5e13-421c-938b-5af76761fb3e",
+      "06348e46-eb89-4165-a240-d3d299c64fb9"
+    ]
+  },
+  {
+    "dax_name": "Sartorius AG",
+    "num_ids": 1,
+    "company_ids": [
+      "cc0bf7a2-c92d-48dc-bfb2-efba2670246a"
+    ]
+  },
+  {
+    "dax_name": "Siemens AG",
+    "num_ids": 2,
+    "company_ids": [
+      "f16a12ff-714c-4dd1-b141-eb8b0355c833",
+      "35e67e24-1ab0-4788-96ce-e352f4fe5293"
+    ]
+  },
+  {
+    "dax_name": "Siemens Energy AG",
+    "num_ids": 2,
+    "company_ids": [
+      "39260625-315b-4158-97aa-64b69eb331db",
+      "a125dbf5-8577-4466-aa64-9dc210ce1ad8"
+    ]
+  },
+  {
+    "dax_name": "Siemens Healthineers AG",
+    "num_ids": 1,
+    "company_ids": [
+      "cb57b6f0-8523-4c74-9dde-ff20e727a55c"
+    ]
+  },
+  {
+    "dax_name": "Symrise AG",
+    "num_ids": 1,
+    "company_ids": [
+      "7fa7c907-3aad-4cb8-9fbe-c8f3643fc5cc"
+    ]
+  },
+  {
+    "dax_name": "Volkswagen AG",
+    "num_ids": 0,
+    "company_ids": []
+  },
+  {
+    "dax_name": "Vonovia SE",
+    "num_ids": 1,
+    "company_ids": [
+      "2692c784-7a0a-4549-8c13-d3c8ebf7a639"
+    ]
+  },
+  {
+    "dax_name": "Zalando SE",
+    "num_ids": 1,
+    "company_ids": [
+      "e9710cb1-0cad-4415-bc8a-e77ed35588ed"
+    ]
+  }
+]

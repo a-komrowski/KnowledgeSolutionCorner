@@ -1,0 +1,75 @@
+{
+  "analysis_date": "2025-11-12T22:03:53.701605",
+  "data_collection": {
+    "dax_40_companies": 38,
+    "total_company_ids": 92,
+    "avg_ids_per_company": 2.4210526315789473,
+    "failed_lookups": 0
+  },
+  "dimensions": {
+    "total_dimensions": 12419,
+    "unique_indicators": 338,
+    "unique_periods": 3,
+    "avg_dimensions_per_company": 134.9891304347826
+  },
+  "coverage": {
+    "companies_with_dimensions": 33,
+    "companies_without_dimensions": 59,
+    "universal_indicators": 0,
+    "high_coverage_indicators_80pct": 0
+  },
+  "top_indicators": {
+    "plainEnumFiscalYearDeviation": 66,
+    "extendedEnumYesNoControversialWeaponsExposure": 66,
+    "plainDateSfdrDataDate": 66,
+    "sfdr": 66,
+    "plainDateFiscalYearEnd": 66,
+    "pcaf": 66,
+    "extendedEnumYesNoHumanRightsDueDiligence": 65,
+    "extendedEnumYesNoIloCoreLabourStandards": 65,
+    "extendedEnumYesNoUnGlobalCompactPrinciplesCompliancePolicy": 65,
+    "extendedEnumYesNoCorruptionLegalProceedings": 64
+  },
+  "top_companies_by_dimensions": [
+    {
+      "company_name": "Daimler Truck Holding AG",
+      "num_dimensions": 452
+    },
+    {
+      "company_name": "E.ON SE",
+      "num_dimensions": 447
+    },
+    {
+      "company_name": "Deutsche Börse Aktiengesellschaft",
+      "num_dimensions": 429
+    },
+    {
+      "company_name": "BASF SE",
+      "num_dimensions": 428
+    },
+    {
+      "company_name": "AIRBUS SE",
+      "num_dimensions": 425
+    },
+    {
+      "company_name": "Siemens Energy AG",
+      "num_dimensions": 423
+    },
+    {
+      "company_name": "Siemens Aktiengesellschaft",
+      "num_dimensions": 421
+    },
+    {
+      "company_name": "Vonovia SE",
+      "num_dimensions": 419
+    },
+    {
+      "company_name": "MTU Aero Engines AG",
+      "num_dimensions": 419
+    },
+    {
+      "company_name": "BRENNTAG SE",
+      "num_dimensions": 417
+    }
+  ]
+}

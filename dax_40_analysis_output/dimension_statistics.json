@@ -1,0 +1,646 @@
+[
+  {
+    "company_id":"b74fe176-8886-4127-aa88-a45a32c386ac",
+    "company_name":"adidas AG",
+    "dax_name":"Adidas AG",
+    "num_dimensions":253,
+    "success":true
+  },
+  {
+    "company_id":"e716b566-c308-45c6-88be-b4d317a4fe93",
+    "company_name":"AIRBUS SE",
+    "dax_name":"Airbus SE",
+    "num_dimensions":425,
+    "success":true
+  },
+  {
+    "company_id":"29243f6f-50ab-4d78-bc3a-c810e913599f",
+    "company_name":"AIRBUS SECURE LAND COMMUNICATIONS GMBH",
+    "dax_name":"Airbus SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"4fdfb860-855e-4a08-81a0-129bd172dc1e",
+    "company_name":"Allianz SE",
+    "dax_name":"Allianz SE",
+    "num_dimensions":347,
+    "success":true
+  },
+  {
+    "company_id":"8ab211df-38e7-4263-9aa4-967f81c867a7",
+    "company_name":"Allianz SE Ashmore Emerging Markets Corporates Fund",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"5243c4a8-bd2a-4a52-9001-f9316c208cb9",
+    "company_name":"ALLIANZ SECTEUR EURO IMMOBILIER",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"8de38778-fe02-43d4-8ec1-773d78fb1318",
+    "company_name":"Allianz Securicash SRI",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"8dd23baa-3f25-40bd-b245-9653656daf56",
+    "company_name":"Allianz Securite",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"794f9bae-28cc-4d1b-8010-e46004621663",
+    "company_name":"Allianz Seguros de Vida SA",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"5cd4ba46-d895-4028-b236-3bf6700d6a36",
+    "company_name":"ALLIANZ SEGUROS S\/A",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"76f730bd-0a86-43eb-8a04-3e4668341c76",
+    "company_name":"ALLIANZ SEGUROS SA",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"1914d0c6-2c88-490f-b140-1403bcfb9bc4",
+    "company_name":"Allianz Select Income and Growth",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"66d7335d-c03b-43be-a237-dcf9b3f10768",
+    "company_name":"ALLIANZ SELECTION",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"b2872f82-beb5-4030-ad70-53bb3d22257e",
+    "company_name":"Allianz Selection Alternative",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"a8731ee3-8263-49e7-9032-82f18e9637eb",
+    "company_name":"Allianz Selection Diversified Aggressive Growth Fund",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"34cf901c-e757-483b-9727-c187e0320046",
+    "company_name":"Allianz Selection Diversified Conservative Fund",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"9d2bfc8c-249f-4cbb-8d1c-7191a69a384e",
+    "company_name":"Allianz Selection Diversified Stable Growth Fund",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"02b26da6-e3e5-4acf-9481-a4c7a017aea2",
+    "company_name":"Allianz Selection Fixed Income",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"01a2fd10-ecb6-40d0-aa4d-11ce8560a964",
+    "company_name":"Allianz Selection Income and Growth Fund",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"c8bc2865-3d62-4970-b803-06ebf1e9eba9",
+    "company_name":"Allianz Selection Small and Mid Cap Equity",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"5117256d-6f7a-4a68-ac7a-fabce375524b",
+    "company_name":"Allianz Selective Global High Income",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"89e576c1-a3b7-472f-ba17-b1e79f92e11d",
+    "company_name":"ALLIANZ SENIOR EUROPEAN INFRASTRUCTURE DEBT FUND, SCSp, SICAV-RAIF",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"4fcd89b9-bda2-469c-ab65-044ea086a81e",
+    "company_name":"Allianz SE-PD Fonds",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"67113a61-4824-4632-8cf2-34e51bfba8e5",
+    "company_name":"Allianz Services Mauritius",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"2852acb0-9e5f-4e4f-8c4d-b7ab8cd00ddc",
+    "company_name":"ALLIANZ SERVICES PRIVATE LIMITED",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"4f68a8f6-fe55-4b7d-82e0-79eba16cf86f",
+    "company_name":"ALLIANZ SERVICES UK",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"be781584-2a69-498a-8270-3467f21a9bf7",
+    "company_name":"ALLIANZ SERVIZI SOCIETA' PER AZIONI",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"c326db3d-b8d7-435b-83c3-77cb7d8936ed",
+    "company_name":"Allianz Paraplufonds N.V. - Allianz Selectie Fonds",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"70208d6e-237b-40bf-bc9a-ff725800f16e",
+    "company_name":"Allianz Thematic Income",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"ac7d2c63-fccc-404d-be74-f9c7663f82dc",
+    "company_name":"BBVA ALLIANZ SEGUROS Y REASEGUROS, S.A.",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"c2d2a777-e4dc-4e20-b987-1b6b2b444492",
+    "company_name":"HSBC PORTF\u00d6Y ALL\u0130ANZ SERBEST \u00d6ZEL FON",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"c3942298-8a11-4733-831e-7c1f73cb40b0",
+    "company_name":"SAS ALLIANZ SERBIE",
+    "dax_name":"Allianz SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"10075779-5ce0-4e38-961f-4b350d3be287",
+    "company_name":"BASF SE",
+    "dax_name":"BASF SE",
+    "num_dimensions":428,
+    "success":true
+  },
+  {
+    "company_id":"78e08745-33b8-4217-9382-287b2c477c0f",
+    "company_name":"BASF SERVICES AMERICAS S.R.L.",
+    "dax_name":"BASF SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"6f444396-2e71-40c1-8101-780ef1ba0c4e",
+    "company_name":"BASF Services Europe GmbH",
+    "dax_name":"BASF SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"48dc8d2d-96c7-48a6-a2a8-9638f2b38ca6",
+    "company_name":"Bayer Aktiengesellschaft",
+    "dax_name":"Bayer AG",
+    "num_dimensions":415,
+    "success":true
+  },
+  {
+    "company_id":"bc7e75c6-0bce-4878-9e0c-1382b10e1644",
+    "company_name":"Bayer Agriculture",
+    "dax_name":"Bayer AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"92b4241e-60f5-4eaf-b1d7-35e90797c365",
+    "company_name":"Bayer Agriculture Pension Fund Belgium",
+    "dax_name":"Bayer AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"62dad5a4-0bdc-46a5-947d-ed82ff98a2c7",
+    "company_name":"VEREIN DER JUBILARE DER BAYER AG e.V.",
+    "dax_name":"Bayer AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"c39b9a7a-36c8-47f6-925f-6dad7ef69835",
+    "company_name":"Beiersdorf AG",
+    "dax_name":"Beiersdorf AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"d8e7e3af-50d2-4aa0-93d0-6e94a73e67d6",
+    "company_name":"BRENNTAG SE",
+    "dax_name":"Brenntag SE",
+    "num_dimensions":417,
+    "success":true
+  },
+  {
+    "company_id":"2256469e-1386-4783-8b66-bfe849615236",
+    "company_name":"COMMERZBANK Aktiengesellschaft",
+    "dax_name":"Commerzbank AG",
+    "num_dimensions":384,
+    "success":true
+  },
+  {
+    "company_id":"8302b6d2-fd44-45af-8d41-1f9d479259d3",
+    "company_name":"Commerzbank AG Shanghai Branch",
+    "dax_name":"Commerzbank AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"5c01af7c-6de0-48ce-9adc-070cb3c4075b",
+    "company_name":"Continental Aktiengesellschaft",
+    "dax_name":"Continental AG",
+    "num_dimensions":387,
+    "success":true
+  },
+  {
+    "company_id":"2c2546a8-7736-4d33-8cdb-bc637f5a1b7e",
+    "company_name":"CONTINENTAL AG ACQUISITIONS, LLC",
+    "dax_name":"Continental AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"336e5fd2-b538-4375-85a9-34351a19babc",
+    "company_name":"CONTINENTAL AG OFFICE, LLC",
+    "dax_name":"Continental AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"c041343e-a892-4950-be81-d5695fcc5ef6",
+    "company_name":"CONTINENTAL AGRA INTERNATIONAL FOODS INC.",
+    "dax_name":"Continental AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"f3f9f2bb-e954-44d7-b5a5-fa060548e132",
+    "company_name":"M\/S CONTINENTAL AGRO SEEDS",
+    "dax_name":"Continental AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"9081abb0-094f-41fa-b6ee-b7a47e3fe390",
+    "company_name":"Daimler Truck Holding AG",
+    "dax_name":"Daimler Truck Holding AG",
+    "num_dimensions":452,
+    "success":true
+  },
+  {
+    "company_id":"5b652bd7-5660-4fdd-a558-237587fc18a4",
+    "company_name":"DEUTSCHE BANK AKTIENGESELLSCHAFT",
+    "dax_name":"Deutsche Bank AG",
+    "num_dimensions":359,
+    "success":true
+  },
+  {
+    "company_id":"5323cf58-6311-4b1f-b825-c78514965984",
+    "company_name":"Deutsche Bank AG Riyadh Branch",
+    "dax_name":"Deutsche Bank AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"f302a16c-bccc-4077-843a-6eaae295a987",
+    "company_name":"DEUTSCHE BANK AG UK EXECUTIVE FUND TRACKER RETIREMENT PLAN",
+    "dax_name":"Deutsche Bank AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"3f18c576-a591-4521-8f6e-9b7e2890e892",
+    "company_name":"Jubi\u00e4ums-Stiftung der Deutsche Bank AG Filiale M\u00fcnchen zugunsten des Lenbachhauses in M\u00fcnchen",
+    "dax_name":"Deutsche Bank AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"98cd35fc-5057-4a52-a835-e07a0402bef5",
+    "company_name":"Jubil\u00e4ums-Stiftung der Deutsche Bank AG Filiale M\u00fcnchen zugunsten des Projekts \"Zu Hause gesund werden\"",
+    "dax_name":"Deutsche Bank AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"4db3fb50-0540-432f-ad0f-f41848608a8d",
+    "company_name":"Deutsche B\u00f6rse Aktiengesellschaft",
+    "dax_name":"Deutsche B\u00f6rse AG",
+    "num_dimensions":429,
+    "success":true
+  },
+  {
+    "company_id":"04dce05d-09d5-4d2b-98f7-4e64ad9a3e39",
+    "company_name":"Deutsche Post AG",
+    "dax_name":"Deutsche Post AG",
+    "num_dimensions":271,
+    "success":true
+  },
+  {
+    "company_id":"2e807990-9056-4db4-9d95-2e6b2f39f88f",
+    "company_name":"DEUTSCHE TELEKOM AG",
+    "dax_name":"Deutsche Telekom AG",
+    "num_dimensions":416,
+    "success":true
+  },
+  {
+    "company_id":"17ddbb60-1348-47e1-9c56-6dc6c5fdf4c9",
+    "company_name":"E.ON SE",
+    "dax_name":"E.ON SE",
+    "num_dimensions":447,
+    "success":true
+  },
+  {
+    "company_id":"d4783b26-acff-4905-8d22-275a3df9920d",
+    "company_name":"E.ON Servicii Tehnice SRL",
+    "dax_name":"E.ON SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"b8e4cd35-5732-4704-bf09-d8e8256412a3",
+    "company_name":"Fresenius Medical Care AG",
+    "dax_name":"Fresenius Medical Care AG & Co. KGaA",
+    "num_dimensions":414,
+    "success":true
+  },
+  {
+    "company_id":"e7a6f3cb-118f-4939-b39a-48e48047d028",
+    "company_name":"Fresenius SE & Co. KGaA",
+    "dax_name":"Fresenius SE & Co. KGaA",
+    "num_dimensions":413,
+    "success":true
+  },
+  {
+    "company_id":"6fe8a4a4-ba7d-4883-95e6-0b9d69ee758f",
+    "company_name":"Heidelberg Materials AG",
+    "dax_name":"Heidelberg Materials AG",
+    "num_dimensions":391,
+    "success":true
+  },
+  {
+    "company_id":"a91162e9-3558-499a-8763-ddbc7eb230da",
+    "company_name":"Erholungswerk der Belegschaft der Heidelberg Materials AG e.V.",
+    "dax_name":"Heidelberg Materials AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"380b3111-bf97-4bae-9bf9-3e9bed9f35f1",
+    "company_name":"Henkel AG & Co. KGaA",
+    "dax_name":"Henkel AG & Co. KGaA",
+    "num_dimensions":312,
+    "success":true
+  },
+  {
+    "company_id":"67450485-5e35-4403-a740-c7f9984859ed",
+    "company_name":"Infineon Technologies AG",
+    "dax_name":"Infineon Technologies AG",
+    "num_dimensions":415,
+    "success":true
+  },
+  {
+    "company_id":"ca4db94b-8b41-4899-9e44-bb4ee1c66318",
+    "company_name":"Mercedes-Benz Group AG",
+    "dax_name":"Mercedes-Benz Group AG",
+    "num_dimensions":389,
+    "success":true
+  },
+  {
+    "company_id":"968892e9-9670-4292-a4bc-a86df0855333",
+    "company_name":"MERCK Kommanditgesellschaft auf Aktien",
+    "dax_name":"Merck KGaA",
+    "num_dimensions":404,
+    "success":true
+  },
+  {
+    "company_id":"144d3018-7c10-4500-ab49-80e6e2a28060",
+    "company_name":"MTU Aero Engines AG",
+    "dax_name":"MTU Aero Engines AG",
+    "num_dimensions":419,
+    "success":true
+  },
+  {
+    "company_id":"b3070cf5-4618-4a42-9979-8f34c041f5ac",
+    "company_name":"Porsche Automobil Holding SE",
+    "dax_name":"Porsche Automobil Holding SE",
+    "num_dimensions":173,
+    "success":true
+  },
+  {
+    "company_id":"be2762d6-232d-4239-95ae-88ce6096c884",
+    "company_name":"QIAGEN N.V.",
+    "dax_name":"QIAGEN N.V.",
+    "num_dimensions":203,
+    "success":true
+  },
+  {
+    "company_id":"5695dc34-3ed8-4aaf-8475-25b7f4c7ae4d",
+    "company_name":"Rheinmetall Aktiengesellschaft",
+    "dax_name":"Rheinmetall AG",
+    "num_dimensions":391,
+    "success":true
+  },
+  {
+    "company_id":"30004cba-dfe1-4aeb-a67b-2cc4001d0b02",
+    "company_name":"SAP SE",
+    "dax_name":"SAP SE",
+    "num_dimensions":385,
+    "success":true
+  },
+  {
+    "company_id":"54f46b89-82f8-44b2-a003-d4b716ebaa44",
+    "company_name":"SAP SE ADRhedged",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"fd1746b5-2856-4359-9a1b-a930a1b6767a",
+    "company_name":"SAP SEMI PRIVATE LIMITED",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"3c6792ff-6481-4040-87b5-fa6093485ee7",
+    "company_name":"SAP Services s.r.o.",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"7a57e0dd-8458-4ad2-be7f-e3e4fbf2673a",
+    "company_name":"SAP SERVO mehani\u010dni obrati d.d.",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"8e49587b-43ca-4dac-80f7-9c37fa22664b",
+    "company_name":"KARTHIKA",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"26daf055-d10e-4a1a-a8c9-17b56346417c",
+    "company_name":"ASAP SEASIDE HOTEL LLC",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"0534bc86-facc-4bf1-a1e6-f5beae296c20",
+    "company_name":"ASAP SERVICES",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"48cfb72e-9349-4634-b551-b87464e2e4d7",
+    "company_name":"ASAP SERVICES S.R.L.",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"c268dafe-4617-412d-93fb-e17f5ee4cf71",
+    "company_name":"ASSAP SERVIZI SRL",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"fcea9cb7-5e13-421c-938b-5af76761fb3e",
+    "company_name":"MARSAP SERVICES PRIVATE LIMITED",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"06348e46-eb89-4165-a240-d3d299c64fb9",
+    "company_name":"NORTH KITSAP SELF STORAGE, INC.",
+    "dax_name":"SAP SE",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"cc0bf7a2-c92d-48dc-bfb2-efba2670246a",
+    "company_name":"Sartorius Aktiengesellschaft",
+    "dax_name":"Sartorius AG",
+    "num_dimensions":403,
+    "success":true
+  },
+  {
+    "company_id":"f16a12ff-714c-4dd1-b141-eb8b0355c833",
+    "company_name":"Siemens Aktiengesellschaft",
+    "dax_name":"Siemens AG",
+    "num_dimensions":421,
+    "success":true
+  },
+  {
+    "company_id":"35e67e24-1ab0-4788-96ce-e352f4fe5293",
+    "company_name":"Verein von Belegschaftsaktion\u00e4ren in der Siemens AG, e.V. M\u00fcnchen",
+    "dax_name":"Siemens AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"39260625-315b-4158-97aa-64b69eb331db",
+    "company_name":"Siemens Energy AG",
+    "dax_name":"Siemens Energy AG",
+    "num_dimensions":423,
+    "success":true
+  },
+  {
+    "company_id":"a125dbf5-8577-4466-aa64-9dc210ce1ad8",
+    "company_name":"Siemens Energy AG",
+    "dax_name":"Siemens Energy AG",
+    "num_dimensions":0,
+    "success":true
+  },
+  {
+    "company_id":"cb57b6f0-8523-4c74-9dde-ff20e727a55c",
+    "company_name":"Siemens Healthineers AG",
+    "dax_name":"Siemens Healthineers AG",
+    "num_dimensions":222,
+    "success":true
+  },
+  {
+    "company_id":"7fa7c907-3aad-4cb8-9fbe-c8f3643fc5cc",
+    "company_name":"Symrise AG",
+    "dax_name":"Symrise AG",
+    "num_dimensions":413,
+    "success":true
+  },
+  {
+    "company_id":"2692c784-7a0a-4549-8c13-d3c8ebf7a639",
+    "company_name":"Vonovia SE",
+    "dax_name":"Vonovia SE",
+    "num_dimensions":419,
+    "success":true
+  },
+  {
+    "company_id":"e9710cb1-0cad-4415-bc8a-e77ed35588ed",
+    "company_name":"Zalando SE",
+    "dax_name":"Zalando SE",
+    "num_dimensions":379,
+    "success":true
+  }
+]
